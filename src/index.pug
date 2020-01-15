@@ -48,15 +48,21 @@ html(lang="en")
           .about-left
             .about-left__content
               .about-left__user-photo
-                +image('./images/content/user.jpg', 'user-img')
+                +image('content/user.jpg', 'user-img')
               .about-left__user
-                ul.user-data__list
-                  li.user-data__item
-                    span.user-data__item-char Проживаю:
-                    span.user-data__item-val Белгород
-                    span.user-data__item-char Возраст:
-                    span.user-data__item-val 47 лет
-                    span.user-data__item-char Родился:
-                    span.user-data__item-val 13 апреля 1972
+                .user-data__desc
+                  .user-data__char
+                    h2.user-data__item-char Проживаю:
+                    h2.user-data__item-char Возраст:
+                    h2.user-data__item-char Родился:
+                  .user-data__val
+                    h2.user-data__item-val Белгород
+                    h2.user-data__item-val 47 лет
+                    h2.user-data__item-val 13 апреля 1972
           .about-right
             .about-right__content
+              .about-right__hey Привет меня зовут
+              .about-right__title Олег Котов
+              .about-rigtt__my-favorite Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+              .about-right__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        section.footer.container

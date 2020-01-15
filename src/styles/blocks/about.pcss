@@ -1,9 +1,93 @@
-.about{
-  border: dashed 1px red;
+.about {
   width: 100%;
-  min-height: 650px;
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);  
+  transform: translateX(-50%);
+  display: flex;
+  padding: 100px;
+}
+
+.about-left {
+  width: 50%;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.88;
+  text-align: left;
+  margin-right: 100px;
+}
+
+.about-left__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-data__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-left__user-photo {
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+.user-img {
+  object-fit: cover;
+}
+
+.about-left__user {
+  margin-left: auto;
+  margin-right: 40px;
+  text-align: left;
+}
+
+.user-data__desc {
+  display: flex;
+}
+
+.user-data__char {
+  margin-right: 60px;
+}
+
+.user-data__item-char {
+  font-size: 16px;
+  opacity: .15;
+}
+
+.user-data__item-val {
+  font-size: 16px;
+}
+
+.about-right {
+  /* width: 50%; */
+  
+}
+
+.about-right__hey {
+  opacity: .5;
+  margin-bottom: 30px;
+}
+
+.about-right__title {
+  font-size: 36px;
+  line-height: 1.33;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.about-rigtt__my-favorite {
+  opacity: 0.5;
+  margin-bottom: 100px;
+}
+
+.about-right__desc {
+  font-style: italic;
+  opacity: 0.5;
 }

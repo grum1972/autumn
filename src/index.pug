@@ -1,0 +1,62 @@
+include ./mixins.pug
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Portfolio | main page
+  body
+    //- p Привет
+    //- .wrapper
+    //-   .maincontent
+    //-     +image('content/user.jpg', 'user-pic')
+    //-     +icon('link', 'link-class')
+    //-     .icon-bg
+    //-     h1 УРА                
+    .wrapper
+      .welcome
+        .parallax
+          +image('content/parallax1800.png', 'parallax-img')
+        section.main-page.container
+          header.header
+            .fio KO
+            nav.header__menu
+              ul.header-menu__list
+                li.header-menu__item Главная
+                li.header-menu__item Обо мне
+                li.header-menu__item Навыки
+                li.header-menu__item Работы
+                li.header-menu__item Отзывы
+                li.header-menu__item Связаться
+            .social
+              ul.social__list
+                li.social__item
+                  a.social__link(href="#")
+                    +icon('insta', 'social__icon') 
+                li.social__item
+                  a.social__link(href="#")
+                    +icon('vk', 'social__icon') 
+                li.social__item
+                  a.social__link(href="#")
+                    +icon('github', 'social__icon') 
+          .main-page__content
+            .main-page__title Олег Котов
+              .main-page__subtitle Личный сайт<br> веб разработчика
+        section.about.container
+          .about-left
+            .about-left__content
+              .about-left__user-photo
+                +image('./images/content/user.jpg', 'user-img')
+              .about-left__user
+                ul.user-data__list
+                  li.user-data__item
+                    span.user-data__item-char Проживаю:
+                    span.user-data__item-val Белгород
+                    span.user-data__item-char Возраст:
+                    span.user-data__item-val 47 лет
+                    span.user-data__item-char Родился:
+                    span.user-data__item-val 13 апреля 1972
+          .about-right
+            .about-right__content

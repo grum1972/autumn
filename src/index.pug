@@ -26,12 +26,18 @@ html(lang="en")
               .main-page__menu
                 nav.header__menu
                   ul.header-menu__list
-                    li.header-menu__item Главная
-                    li.header-menu__item Обо мне
-                    li.header-menu__item Навыки
-                    li.header-menu__item Работы
-                    li.header-menu__item Отзывы
-                    li.header-menu__item Связаться
+                    li.header-menu__item 
+                      a.header-menu__link Главная
+                    li.header-menu__item 
+                      a.header-menu__link Обо мне
+                    li.header-menu__item 
+                      a.header-menu__link Навыки
+                    li.header-menu__item 
+                      a.header-menu__link Работы
+                    li.header-menu__item 
+                      a.header-menu__link Отзывы
+                    li.header-menu__item 
+                      a.header-menu__link Связаться
               .social
                 ul.social__list
                   li.social__item
@@ -48,7 +54,7 @@ html(lang="en")
                 .main-page__user-subtitle Личный сайт<br> веб разработчика
                 .main-page__user-title Олег<br> Котов
             .main-page__buttons
-              a.scroll-btn(href="#") Скролл
+              a.scroll-btn Скролл
               
         section.about
           .container.container--about
@@ -95,7 +101,7 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke-dasharray="300" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95" stroke-dasharray="150 450" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title HTML5
                         li.skills__item
                           .skill
@@ -105,7 +111,7 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke-dasharray="350" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95" stroke-dasharray="100 500" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title CSS3
                         li.skills__item
                           .skill
@@ -115,7 +121,7 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke-dasharray="390" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95" stroke-dasharray="450" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title Javascript
                         li.skills__item
                           .skill
@@ -125,7 +131,7 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke-dasharray="470" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95" stroke-dasharray="150 450" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title  Jquery и Vue.js  
                 li.skill-set__item
                   .skill-group
@@ -140,7 +146,7 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95" stroke-dasharray="100 500" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title GIT
                         li.skills__item
                           .skill
@@ -150,7 +156,7 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95" stroke-dasharray="150 450" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title Terminal
                         li.skills__item
                           .skill
@@ -160,7 +166,7 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95" stroke-dasharray="300 300" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title Gulp
                         li.skills__item
                           .skill
@@ -170,9 +176,48 @@ html(lang="en")
                                   stop(offset="60%" stop-color="#d0731b").skill__fill--start
                                   stop(offset="100%" stop-color="#dc9322").skill__fill--end
                               circle(cx="100" cy="100" r="95").skill__circle.skill__circle--under
-                              circle(cx="100" cy="100" r="95" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
+                              circle(cx="100" cy="100" r="95"  stroke-dasharray="225 375" stroke="url(#skill-gradient)" transform="rotate(-180 100 100)").skill__circle.skill__circle--above
                             .skill__title Webpack   
-          
+      section.work
+        .container
+          .work__title Мои работы
+          .work__content
+            .slider
+              .slider__content
+                +image('content/1.jpg', 'slider__content-img')
+                .slider__content-pictures
+                  ul.slider-pictures
+                    li.slider-pictures__item
+                      a(href="").slider-pictures__link
+                        +image('content/1.jpg', 'slider-pictures__img')
+                    li.slider-pictures__item
+                      a(href="").slider-pictures__link
+                        +image('content/2.jpg', 'slider-pictures__img')
+                    li.slider-pictures__item
+                      a(href="").slider-pictures__link
+                        +image('content/3.jpg', 'slider-pictures__img')
+                    li.slider-pictures__item
+                      a(href="").slider-pictures__link
+                        +image('content/4.jpg', 'slider-pictures__img')
+                  .slider__buttons
+                    a.direct-btn
+                      +icon('arrow-down', 'direct-icon')
+                    a.direct-btn
+                      +icon('arrow-down', 'direct-icon--prev')
+                .slider__number 2    
+              .slider__info
+                .slider__tags
+                  ul.tags
+                    li.tags__item HTML
+                    li.tags__item CSS
+                    li.tags__item Javascript
+                .slider__info-text
+                  h3.slider__info-title Сайт школы образования
+                  .slider__info-desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                .slider__info-btns
+                  a.iconed-link Посмотреть сайт
+              
+
           
       section.low
         section.review

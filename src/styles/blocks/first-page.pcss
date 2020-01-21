@@ -1,6 +1,6 @@
 .welcome {
   width: 100%;
-  background-image: url('~images/content/trainbridge.jpg');  
+  background-image: url('~images/content/trainbridge.jpg');
 }
 
 .main-page {
@@ -12,9 +12,8 @@
   margin-bottom: 170px;
 }
 
-.main-page__content {
-  
-}
+.main-page__content {}
+
 .main-page__user {
   display: flex;
   justify-content: center;
@@ -43,4 +42,26 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.scroll-btn {
+  padding: 10px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 1px;
+    transform: translate(-50%, -50%);
+    content: "";
+    display: inline-block;
+    width: 19px;
+    height: 30px;
+    margin-left: 60px;
+    background-image: svg-load("scroll.svg", fill="#fff");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

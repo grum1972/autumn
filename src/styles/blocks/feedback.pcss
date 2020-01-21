@@ -1,3 +1,123 @@
+.feedback {
+  padding: 160px 0;
+}
+
+.feedback__title {
+  font-size: 36px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-align: left;
+  margin-bottom: 90px;
+}
+
+.form__wrapper {
+  width: 60%;
+}
+
+.form__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__row {
+  display: flex;
+  margin-bottom: 60px;
+  height: 100%;
+}
+
+.form__textarea {
+  width: 100%;
+  resize: none;
+  background: none;
+  overflow: hidden;
+}
+
+.form__label {
+  flex: 1;
+  margin-right: 80px;
+  border-bottom: 1px solid #fff;
+  padding-left: 40px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    bottom: 10px;
+    left: -60px;
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 60px;
+    background-image: svg-load("user.svg", fill="#fff");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .3;
+  }
+}
+
+.form__label-email {
+  flex: 1;
+  margin-right: 80px;
+  border-bottom: 1px solid #fff;
+  padding-left: 40px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    bottom: 10px;
+    left: -60px;
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 60px;
+    background-image: svg-load("envelope.svg", fill="#fff");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .3;
+  }
+}
+
+.form__label-message {
+  flex: 1;
+  margin-right: 80px;
+  border-bottom: 1px solid #fff;
+  padding-left: 40px;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    bottom: 40px;
+    left: -60px;
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 60px;
+    background-image: svg-load("message.svg", fill="#fff");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .3;
+  }
+}
+
+
+.form__label-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.88;
+  letter-spacing: normal;
+  opacity: .3;
+}
 
 .feedback__btn {
   font-size: 18px;
@@ -5,5 +125,36 @@
   padding: 33px 120px;
   text-transform: uppercase;
   background-image: linear-gradient(to top, #d0731b, #dc9322);
+  color: #fff;
+}
+
+.form__input::placeholder {
+  font-weight: 300;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+}
+
+.form__textarea::placeholder {
+  font-weight: 300;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.form__input {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 20px 0;
   color: #fff;
 }

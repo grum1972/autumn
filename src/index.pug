@@ -216,15 +216,65 @@ html(lang="en")
                   .slider__info-desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                 .slider__info-btns
                   a.iconed-link Посмотреть сайт
-              
-
-          
       section.low
         section.review
+          .leaf1
+          .leaf2
+          .leaf3
+          .leaf4
           .container
+            .review__header
+              .review__title Что обо мне говорят
+              .review__buttons
+                a.direct-btn.direct-btn--review
+                  +icon('arrow-down', 'direct-icon--prev')
+                a.direct-btn.direct-btn--review
+                 +icon('arrow-down', 'direct-icon')
+            .review__slider
+              ul.review__list
+                li.review__item
+                  .review__quote
+                  .review__info
+                    .review__text
+                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .review__author
+                      .review__avatar
+                        .photo
+                          +image('content/dk.jpg', 'photo__img')
+                      .review__author-desc    
+                        .review__author-name Ковальчук Дмитрий
+                        .review__author-occup Основатель Loftschool
+                li.review__item
+                  .review__quote
+                  .review__info
+                    .review__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .review__author
+                      .review__avatar
+                        .photo
+                          +image('content/sv.jpg', 'photo__img')
+                      .review__author-desc    
+                        .review__author-name Владимир Сабанцев
+                        .review__author-occup Преподаватель
+
         section.feedback
           .container
-            button.feedback__btn(type="submit") Отправить1
+            .feedback__title Cвязаться со мной
+            .form__wrapper
+              form(action).form__content
+                .form__row
+                  label.form__label
+                    span.form__label-title Введите ваше имя
+                    input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="name")
+                  label.form__label-email
+                    span.form__label-title Ввведите ваше email
+                    input.form__input(type="text" placeholder="loftschool@study.com" name="email")
+                .form__row
+                  label.form__label-message
+                    span.form__label-title Сообщение к письму
+                    textarea(placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" rows="3" name="comment").form__textarea.form__input
+                .form__row
+                  button.feedback__btn(type="submit") Отправить
       section.footer
         .container.container-footer
           .footer-left

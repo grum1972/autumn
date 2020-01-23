@@ -101,4 +101,19 @@
   font-weight: normal;
   opacity: 0.5;
   line-height: 1.88;
+  position: relative;
+  &:before {
+    content:"*";
+    position: absolute;
+    width: 10%;
+    top: 10px;
+    left: -50px;
+    font-size: 48px;
+    font-weight: normal;
+    font-style: italic;
+    line-height: .63;
+    color: red;
+    opacity: .4;
+
+  }
 }

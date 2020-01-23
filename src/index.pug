@@ -78,7 +78,7 @@ html(lang="en")
               .about-right__title Олег Котов
               .about-rigtt__my-favorite Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
               .about-right__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-      
+              
       section.advantages
         .advantages__bg
         .container
@@ -189,16 +189,23 @@ html(lang="en")
                   ul.slider-pictures
                     li.slider-pictures__item
                       a(href="").slider-pictures__link
-                        +image('content/1.jpg', 'slider-pictures__img')
+                        .slider-pictures__img.slider-pictures__img-1
+                          .overlay
+                    li.slider-pictures__item.slider-pictures__item--active
+                      a(href="").slider-pictures__link
+                        .slider-pictures__img.slider-pictures__img-2
+                          .overlay
                     li.slider-pictures__item
                       a(href="").slider-pictures__link
-                        +image('content/2.jpg', 'slider-pictures__img')
+                        .slider-pictures__img.slider-pictures__img-3
+                          .overlay
                     li.slider-pictures__item
                       a(href="").slider-pictures__link
-                        +image('content/3.jpg', 'slider-pictures__img')
-                    li.slider-pictures__item
-                      a(href="").slider-pictures__link
-                        +image('content/4.jpg', 'slider-pictures__img')
+                        .slider-pictures__img.slider-pictures__img-4
+                          .overlay
+                    //- li.slider-pictures__item
+                    //-   a(href="").slider-pictures__link
+                    //-     +image('content/4.jpg', 'slider-pictures__img')
                   .slider__buttons
                     a.direct-btn
                       +icon('arrow-down', 'direct-icon')
@@ -219,9 +226,13 @@ html(lang="en")
       section.low
         section.review
           .leaf1
+            +image('content/leaf4.png', 'leaf1__img')
           .leaf2
+            +image('content/leaf1.png', 'leaf2__img')
           .leaf3
+            +image('content/leaf3.png', 'leaf3__img')
           .leaf4
+            +image('content/leaf2.png', 'leaf4__img')
           .container
             .review__header
               .review__title Что обо мне говорят
@@ -229,7 +240,7 @@ html(lang="en")
                 a.direct-btn.direct-btn--review
                   +icon('arrow-down', 'direct-icon--prev')
                 a.direct-btn.direct-btn--review
-                 +icon('arrow-down', 'direct-icon')
+                  +icon('arrow-down', 'direct-icon')
             .review__slider
               ul.review__list
                 li.review__item
@@ -289,12 +300,18 @@ html(lang="en")
           .footer-right
             nav.header__menu.header__menu--footer
               ul.header-menu__list
-                li.header-menu__item Главная
-                li.header-menu__item Обо мне
-                li.header-menu__item Навыки
-                li.header-menu__item Работы
-                li.header-menu__item Отзывы
-                li.header-menu__item Связаться
+                li.header-menu__item 
+                  a.header-menu__link Главная
+                li.header-menu__item 
+                  a.header-menu__link Обо мне
+                li.header-menu__item 
+                  a.header-menu__link Навыки
+                li.header-menu__item 
+                  a.header-menu__link Работы
+                li.header-menu__item 
+                  a.header-menu__link Отзывы
+                li.header-menu__item 
+                  a.header-menu__link Связаться
             .footer-info
               .footer-info__left
                 .footer-info__left-text

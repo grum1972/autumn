@@ -85,6 +85,7 @@
   width: 140px;
   height: 100%;
   margin-right: 68px;
+  
 
   &:last-child {
     margin-right: 0;
@@ -92,6 +93,7 @@
 }
 
 .skill {
+  width: 100%;
   height: 100%;
   position: relative;
 }
@@ -120,11 +122,12 @@
 }
 
 .skill__circle--under {
-  stroke-width: 3px;
+  stroke-width: 6px;
   stroke: #e9e9e9;
   opacity: .1;
 }
 
 .skill__circle--above {
   stroke-width: 12px;
-}
+  stroke-dasharray: 150 450;
+ }

@@ -18,8 +18,20 @@ html(lang="en")
     .wrapper
       .welcome
         .container
-          //- .parallax
-          //-   +image('content/parallax1800.png', 'parallax-img')
+          section.parallax
+            .parallax__item(data-speed = '0.1')
+              +image('content/parallax1.png', 'parallax-img')
+            .parallax__item(data-speed = '0.25')
+              +image('content/parallax2.png', 'parallax-img')
+            .parallax__item(data-speed = '0.35')
+              +image('content/parallax3.png', 'parallax-img')
+            .parallax__item(data-speed = '0.4')
+              +image('content/parallax4.png', 'parallax-img')
+            .parallax__item(data-speed = '0')
+              +image('content/parallax5.png', 'parallax-img')
+            .parallax__item(data-speed = '0')
+              +image('content/p6.png', 'parallax-img')
+        
           section.main-page
             header.main-page__header
               .logo KO
@@ -56,29 +68,29 @@ html(lang="en")
             .main-page__buttons
               a.scroll-btn Скролл
               
-        section.about
-          .container.container--about
-            .about-left
-              .about-left__content
-                .user-photo
-                  .photo
-                    +image('content/user.jpg', 'photo__img')
-                .user-data
-                  .user-data__desc
-                    .user-data__char
-                      .user-data__item-char Проживаю:
-                      .user-data__item-char Возраст:
-                      .user-data__item-char Родился:
-                    .user-data__val
-                      .user-data__item-val Белгород
-                      .user-data__item-val 48 лет
-                      .user-data__item-val 13 апреля 1972
-            .about-right
-              .about-right__hey Привет меня зовут
-              .about-right__title Олег Котов
-              .about-rigtt__my-favorite Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-              .about-right__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-              
+          section.about
+            .container.container--about
+              .about-left
+                .about-left__content
+                  .user-photo
+                    .photo
+                      +image('content/user.jpg', 'photo__img')
+                  .user-data
+                    .user-data__desc
+                      .user-data__char
+                        .user-data__item-char Проживаю:
+                        .user-data__item-char Возраст:
+                        .user-data__item-char Родился:
+                      .user-data__val
+                        .user-data__item-val Белгород
+                        .user-data__item-val 48 лет
+                        .user-data__item-val 13 апреля 1972
+              .about-right
+                .about-right__hey Привет меня зовут
+                .about-right__title Олег Котов
+                .about-rigtt__my-favorite Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .about-right__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                
       section.advantages
         .advantages__bg
         .container

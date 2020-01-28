@@ -161,36 +161,74 @@ html(lang="en")
             .review__header
               .review__title Что обо мне говорят
               .review__buttons
-                a.direct-btn.direct-btn--review
+                button(@click="previous()").direct-btn.direct-btn--review
                   +icon('arrow-down', 'direct-icon--prev')
-                a.direct-btn.direct-btn--review
+                button(@click="next()").direct-btn.direct-btn--review
                   +icon('arrow-down', 'direct-icon')
-            .review__slider
-              ul.review__list
-                li.review__item
-                  .review__quote
-                  .review__info
-                    .review__text
-                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                    .review__author
-                      .review__avatar
-                        .photo
-                          +image('content/dk.jpg', 'photo__img')
-                      .review__author-desc    
-                        .review__author-name Ковальчук Дмитрий
-                        .review__author-occup Основатель Loftschool
-                li.review__item
-                  .review__quote
-                  .review__info
-                    .review__text
-                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                    .review__author
-                      .review__avatar
-                        .photo
-                          +image('content/sv.jpg', 'photo__img')
-                      .review__author-desc    
-                        .review__author-name Владимир Сабанцев
-                        .review__author-occup Преподаватель
+            flickity(ref="flickity" :options="flickityOptions").review__slider
+              //- .review__list
+              .review__item
+                .review__quote
+                .review__info
+                  .review__text
+                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                  .review__author
+                    .review__avatar
+                      .photo
+                        +image('content/dk.jpg', 'photo__img')
+                    .review__author-desc    
+                      .review__author-name Ковальчук Дмитрий
+                      .review__author-occup Основатель Loftschool
+              .review__item
+                .review__quote
+                .review__info
+                  .review__text
+                    p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                  .review__author
+                    .review__avatar
+                      .photo
+                        +image('content/sv.jpg', 'photo__img')
+                    .review__author-desc    
+                      .review__author-name Владимир Сабанцев
+                      .review__author-occup Преподаватель
+              .review__item
+                .review__quote
+                .review__info
+                  .review__text
+                    p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                  .review__author
+                    .review__avatar
+                      .photo
+                        +image('content/sv.jpg', 'photo__img')
+                    .review__author-desc    
+                      .review__author-name Владимир Сабанцев
+                      .review__author-occup Преподаватель
+              .review__item
+                .review__quote
+                .review__info
+                  .review__text
+                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                  .review__author
+                    .review__avatar
+                      .photo
+                        +image('content/dk.jpg', 'photo__img')
+                    .review__author-desc    
+                      .review__author-name Ковальчук Дмитрий
+                      .review__author-occup Основатель Loftschool        
+                //- .review__item
+                //-   .review__quote
+                //-   .review__info
+                //-     .review__text
+                //-       p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                //-     .review__author
+                //-       .review__avatar
+                //-         .photo
+                //-           +image('content/sv.jpg', 'photo__img')
+                //-       .review__author-desc    
+                //-         .review__author-name Владимир Сабанцев
+                //-         .review__author-occup Преподаватель
+              
+
 
         section.feedback
           .container

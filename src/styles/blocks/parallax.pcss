@@ -33,27 +33,41 @@
 
   &:nth-child(4) {
     .parallax-img {
+
       margin-top: 47%;
+
+      @include desktop {
+        margin-top: 44%;
+      }
+
       object-fit: cover;
       width: 100%;
       height: 100%;
     }
   }
+
   &:nth-child(5) {
     .parallax-img {
       margin-top: 50%;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-       
-    }
-  }
-  &:nth-child(6) {
-    .parallax-img {
-      margin-top: 50%;
+      @include tablets {
+        margin-top: 47%;
+      }
       object-fit: cover;
       width: 100%;
       height: 100%;
-     }
+
+    }
+  }
+
+  &:nth-child(6) {
+    .parallax-img {
+      margin-top: 50%;
+      @include tablets {
+        margin-top: 47%;
+      }
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
 }

@@ -1,5 +1,10 @@
 .review {
   padding: 80px 0;
+
+  @include desktop {
+    padding: 80px 30px;
+  }
+
   position: relative;
 }
 
@@ -53,7 +58,6 @@
 
 .direct-btn.direct-btn--review {
   border-radius: 50%;
-  border: 1px solid #fff;
   background: none;
   margin-right: 30px;
 
@@ -80,28 +84,24 @@
 
 .review__slider {
   margin-bottom: 50px;
-  border: 1px solid green;
   width: 70%;
   overflow: hidden;
-
-
 }
 
 .review__item {
   width: 50%;
   display: flex;
   flex-shrink: 0;
-  border: 1px solid red;
+
   &:last-child {
     margin-right: 0;
   }
 
+  min-height: 100%;
 }
 
 .review__author {
   display: flex;
-  border: 1px solid #fff;
-
 }
 
 .review__info {
@@ -109,7 +109,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  /* height: 100%;  */
 
 }
 

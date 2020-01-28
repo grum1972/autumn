@@ -1,5 +1,8 @@
 .feedback {
   padding: 160px 0;
+  @include desktop {
+    padding: 160px 30px;
+  }
 }
 
 .feedback__btn {
@@ -27,6 +30,9 @@
 
 .form__wrapper {
   width: 60%;
+  @include desktop {
+    width: 75%;
+  }
 }
 
 .form__content {

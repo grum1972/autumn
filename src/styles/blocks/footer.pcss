@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   background-color: #222427;
-  padding: 75px 0 80px ;
+  padding: 75px 0 80px;
 }
 
 .container-footer {
@@ -10,6 +10,10 @@
 
 .footer-left {
   display: flex;
+
+  @include desktop {
+    flex-direction: column;
+  }
 }
 
 .copyright {
@@ -26,6 +30,11 @@
   display: flex;
   flex-direction: column;
   margin-right: 140px;
+
+  @include desktop {
+    margin-right: 120px;
+    margin-top: 30px;
+  }
 }
 
 .user-info__name {
@@ -36,6 +45,11 @@
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 30px;
+
+  @include desktop {
+    margin-bottom: 20px;
+
+  }
 }
 
 .user-info__desc {
@@ -55,6 +69,7 @@
 .header__menu.header__menu--footer {
   padding-bottom: 0px;
 }
+
 .header__menu--footer .header-menu__item {
   padding-top: 0;
   padding-bottom: 20px;
@@ -67,16 +82,23 @@
 }
 
 .footer-info__left {
-  width: 50%;
+  width: 40%;
+
 }
 
 .footer-info__left-text>p {
   opacity: .3;
   padding-right: 160px;
+
+  @include desktop {
+    padding-right: 50px;
+  }
+
 }
 
 .footer-info__right {
-  width: 50%;
+  width: 60%;
+
 }
 
 .footer-quote {

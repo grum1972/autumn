@@ -1,11 +1,14 @@
 .about {
   width: 100%;
   padding: 90px;
+  @include tablets {
+    padding: 90px 0;
+  }
 }
 
 .container--about {
   display: flex;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
   
 }
 
@@ -15,6 +18,13 @@
   font-weight: 600;
   line-height: 1.88;
   margin-right: 100px;
+  @include desktop {
+    width: 40%;
+  }
+  @include tablets {
+    width: 40%;
+  }
+
 }
 
 .about-left__content {
@@ -32,8 +42,14 @@
   width: 200px;
   height: 200px;
   align-self: flex-end;
-  margin-right: 50px;
+  margin-right: 40px;
   margin-bottom: 70px;
+  @include tablets {
+    margin-right: 0;
+    align-self: flex-start;
+    margin-left: 20px;
+  }
+
 }
 
 .photo {
@@ -54,7 +70,7 @@
 }
 
 .user-data {
-  margin-left: 55px;
+  margin-left: 20px;
 }
 
 .user-data__desc {
@@ -63,6 +79,9 @@
 
 .user-data__char {
   margin-right: 80px;
+  @include tablets {
+    margin-right: 40px;
+  }
 }
 
 .user-data__item-char {
@@ -89,16 +108,31 @@
   line-height: 1.33;
   font-weight: bold;
   margin-bottom: 35px;
+  @include tablets {
+   font-size: 30px;
+  }
 }
 
 .about-rigtt__my-favorite {
   width: 65%;
   opacity: 0.5;
   margin-bottom: 100px;
+  @include desktop {
+    width: 90%;
+  }
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .about-right__desc {
   width: 63%;
+  @include desktop {
+    width: 90%;
+  }
+  @include tablets {
+    width: 100%;
+  }
   font-style: italic;
   font-weight: normal;
   opacity: 0.5;

@@ -1,7 +1,7 @@
 .feedback {
   padding: 160px 0;
   @include desktop {
-    padding: 160px 30px;
+    padding: 100px 30px;
   }
 }
 
@@ -15,7 +15,14 @@
   &:hover {
     background-image: linear-gradient(to top, #ff7f00, #ff9d00);
   }
+  
 }
+.form__row .feedback__btn {
+  @include tablets {
+   margin: 0 auto;
+  }
+}
+
 .feedback__title {
   font-size: 36px;
   font-weight: bold;
@@ -25,13 +32,18 @@
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 90px;
-  
+  @include tablets {
+    text-align: center;
+  }
 }
 
 .form__wrapper {
   width: 60%;
   @include desktop {
     width: 75%;
+  }
+  @include tablets {
+    width: 100%;
   }
 }
 
@@ -88,7 +100,7 @@
 
 .form__label-email {
   flex: 1;
-  margin-right: 80px;
+  /* margin-right: 80px; */
   border-bottom: 1px solid #fff;
   padding-left: 40px;
   position: relative;
@@ -120,7 +132,7 @@
 
 .form__label-message {
   flex: 1;
-  margin-right: 80px;
+  /* margin-right: 80px; */
   border-bottom: 1px solid #fff;
   padding-left: 40px;
   position: relative;

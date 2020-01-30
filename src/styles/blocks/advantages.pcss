@@ -3,6 +3,9 @@
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
+  @include tablets {
+    padding-bottom: 190px;
+  }
 }
 
 .advantages__bg {
@@ -15,18 +18,36 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+  @include tablets {
+    width: 100%;
+    height: 40%;  
+    top: 66.3%;
+    left: 50%;
+    transform : translateX(-50%) rotate(-90deg);
+  }
 }
 
 .advantages__container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  @include tablets {
+    align-items: center;
+   }
 }
 
 .advantages__title {
   width: 70%;
   margin-top: 145px;
   margin-bottom: 55px;
+  text-align: left;
+  @include tablets {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
 }
 
 .advantages__title-text {
@@ -36,8 +57,12 @@
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-align: left;
+ 
   margin-bottom: 45px;
+  @include tablets {
+    margin-bottom: 30px;
+    width: 40%;
+   }
 }
 
 .advantages__title-subtext {
@@ -48,23 +73,45 @@
   font-style: normal;
   line-height: 1.88;
   letter-spacing: normal;
-  text-align: left;
   opacity: .5;
+  @include tablets {
+    font-size: 14px;   
+    text-align: center;
+    width: 55%;
+  
+   }  
 }
 
 .advantages__content {
   width: 63%;
   /* padding: 25px; */
   margin-bottom: 140px;
+  @include tablets {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }  
 }
 
-.skill-set {}
+.skill-set {
+  
+}
 
 .skill-set__item {
   margin-bottom: 45px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
 }
 
-.skill-group {}
+.skill-group {
+  @include tablets {
+    display: flex;
+    flex-direction :column;
+    /* align-items: center; */
+   }  
+}
 
 .skill-group__title {
   font-size: 24px;
@@ -73,6 +120,10 @@
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 35px;
+  @include tablets {
+    font-size: 18px;
+    text-align: center;
+   }  
 }
 
 .skill-group__content {}
@@ -81,6 +132,9 @@
   display: flex;
   flex-wrap: wrap;
   margin-left: -60px;
+  @include tablets {
+     margin-left: -30px;
+   }  
 }
 
 .skills__item {
@@ -88,6 +142,10 @@
   height: 100%;
   margin-left: 60px;
   margin-bottom: 30px;
+  @include tablets {
+    width: 120px;
+    margin-left: 30px;
+   }  
 /* 
   &:last-child {
     margin-right: 0;

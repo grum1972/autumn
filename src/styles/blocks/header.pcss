@@ -3,17 +3,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include tablets {
+    justify-content: flex-end;
+  }
   margin-top: 65px;
-  
+  border: 1px solid yellow;
 }
 
 .main-page__menu {
+  @include tablets {
+    display: none;
+  }
   margin: 0 90px;
+  ;
   }
 
 .header-menu__list {
   display: flex;
   
+  @include tablets {
+    flex-wrap: wrap;
+  }
   
 }
 
@@ -44,8 +54,26 @@
   line-height: 0.83;
   text-align: left;
   color: #fff;
+  
+  @include tablets {
+    margin-right: auto;
+  }
+  
+  
 }
 .main-page__buttons {
   margin-bottom: 20px;
 }
 
+.hamburger-menu__btn {
+  display: hidden;
+  @include tablets {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+  }
+  border: 1px solid red;
+  padding: 25px;
+  flex: 0;
+}

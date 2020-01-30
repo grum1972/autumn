@@ -21,6 +21,9 @@
     font-size: 30px;
     margin-bottom: 50px;
   }
+  @include phones {
+   text-align: center;
+  }
 }
 
 .slider {
@@ -29,6 +32,9 @@
   @include tablets {
     flex-direction: column;
 
+  }
+  @include phones {
+    align-items: center;
   }
 
 }
@@ -42,6 +48,9 @@
 
   margin-right: 160px;
   position: relative;
+  @include phones {
+    margin-right: 0px;
+  }
 
 }
 
@@ -58,14 +67,22 @@
   height: 100px;
 
   @include tablets {
-    width: 75%;
+    width: 500px;
   }
 }
 
 .slider-pictures {
   display: flex;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
+  @include phones {
+    display: none;
+  }
+}
+.slider-pictures__item.slider-pictures__item--invisible {
+  @include tablets {
+    display: none;
+  }
 }
 
 .slider-pictures__item {
@@ -86,6 +103,7 @@
   outline-width: 3px;
   outline-style: solid;
   margin-right: 3px;
+ 
 }
 
 .slider-pictures__link {
@@ -244,6 +262,9 @@
   position: absolute;
   left: 100%;
   bottom: 0;
+  @include phones {
+   left: 90%
+  }
 }
 
 .direct-btn {
@@ -286,4 +307,7 @@
   letter-spacing: normal;
   color: #e6e6e6;
   z-index: -100;
+  @include phones {
+    display: none;
+  }
 }

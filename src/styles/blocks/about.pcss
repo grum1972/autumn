@@ -1,15 +1,24 @@
 .about {
   width: 100%;
   padding: 90px;
+
   @include tablets {
     padding: 90px 0;
+  }
+
+  @include phones {
+    padding: 10px 70px 90px 70px;
   }
 }
 
 .container--about {
   display: flex;
   /* margin-bottom: 100px; */
-  
+
+  @include phones {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .about-left {
@@ -18,11 +27,19 @@
   font-weight: 600;
   line-height: 1.88;
   margin-right: 100px;
+
   @include desktop {
     width: 40%;
   }
+
   @include tablets {
     width: 40%;
+  }
+
+  @include phones {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
   }
 
 }
@@ -36,6 +53,12 @@
 .user-data {
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
+
+  @include phones {
+    margin-left: 0px;
+  }
+
 }
 
 .user-photo {
@@ -44,10 +67,18 @@
   align-self: flex-end;
   margin-right: 40px;
   margin-bottom: 70px;
+
   @include tablets {
     margin-right: 0;
     align-self: flex-start;
     margin-left: 20px;
+  }
+
+  @include phones {
+    margin-right: 0;
+    align-self: center;
+    margin-left: 0;
+    margin-bottom: 30px;
   }
 
 }
@@ -69,16 +100,13 @@
   text-align: left;
 }
 
-.user-data {
-  margin-left: 20px;
-}
-
 .user-data__desc {
   display: flex;
 }
 
 .user-data__char {
   margin-right: 80px;
+
   @include tablets {
     margin-right: 40px;
   }
@@ -96,6 +124,11 @@
 
 .about-right {
   width: 60%;
+
+  @include phones {
+    width: 100%;
+    padding: 0 20px;
+  }
 }
 
 .about-right__hey {
@@ -108,38 +141,50 @@
   line-height: 1.33;
   font-weight: bold;
   margin-bottom: 35px;
+
   @include tablets {
-   font-size: 30px;
+    font-size: 30px;
   }
 }
 
-.about-rigtt__my-favorite {
+.about-right__my-favorite {
   width: 65%;
   opacity: 0.5;
   margin-bottom: 100px;
+
   @include desktop {
     width: 90%;
   }
+
   @include tablets {
     width: 100%;
+  }
+
+  @include phones {
+    width: 100%;
+    margin-bottom: 45px;
   }
 }
 
 .about-right__desc {
   width: 63%;
+
   @include desktop {
     width: 90%;
   }
+
   @include tablets {
     width: 100%;
   }
+
   font-style: italic;
   font-weight: normal;
   opacity: 0.5;
   line-height: 1.88;
   position: relative;
+
   &:before {
-    content:"*";
+    content: "*";
     position: absolute;
     width: 10%;
     top: 10px;

@@ -62,6 +62,10 @@ html(lang="en")
                     a.social__link(href="#")
                       +icon('github', 'social__icon') 
               .hamburger-menu__btn
+                .hamburger-menu__btn-box
+                  .hamburger-menu__btn-pad
+                  .hamburger-menu__btn-pad
+                  .hamburger-menu__btn-pad
             .main-page__content
               .main-page__user
                 .main-page__user-subtitle Личный сайт<br> веб разработчика
@@ -89,7 +93,7 @@ html(lang="en")
               .about-right
                 .about-right__hey Привет меня зовут
                 .about-right__title Олег Котов
-                .about-rigtt__my-favorite Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .about-right__my-favorite Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                 .about-right__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
                 
       section.advantages
@@ -124,7 +128,7 @@ html(lang="en")
                       a(href="").slider-pictures__link
                         .slider-pictures__img.slider-pictures__img-3
                           .overlay
-                    li.slider-pictures__item
+                    li.slider-pictures__item.slider-pictures__item--invisible
                       a(href="").slider-pictures__link
                         .slider-pictures__img.slider-pictures__img-4
                           .overlay
@@ -236,7 +240,7 @@ html(lang="en")
             .feedback__title Cвязаться со мной
             .form__wrapper
               form(action).form__content
-                .form__row
+                .form__row.form__row--one
                   label.form__label
                     span.form__label-title Введите ваше имя
                     input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="name")

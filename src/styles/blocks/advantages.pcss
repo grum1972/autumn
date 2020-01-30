@@ -6,6 +6,9 @@
   @include tablets {
     padding-bottom: 190px;
   }
+  @include phones {
+    padding-bottom: 60px;
+  }
 }
 
 .advantages__bg {
@@ -22,6 +25,13 @@
     width: 100%;
     height: 40%;  
     top: 66.3%;
+    left: 50%;
+    transform : translateX(-50%) rotate(-90deg);
+  }
+  @include phones {
+    width: 50%;
+    height: 20%;  
+    top: 83%;
     left: 50%;
     transform : translateX(-50%) rotate(-90deg);
   }
@@ -63,6 +73,11 @@
     margin-bottom: 30px;
     width: 40%;
    }
+   @include phones {
+    margin-bottom: 30px;
+    width: 80%;
+    text-align: left;
+   } 
 }
 
 .advantages__title-subtext {
@@ -79,7 +94,12 @@
     text-align: center;
     width: 55%;
   
-   }  
+   } 
+   @include phones {
+    
+    width: 80%;
+    text-align: left;
+   }   
 }
 
 .advantages__content {
@@ -87,6 +107,11 @@
   /* padding: 25px; */
   margin-bottom: 140px;
   @include tablets {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }  
+  @include phones {
     width: 80%;
     display: flex;
     justify-content: center;

@@ -66,11 +66,23 @@
 }
 
 .form__input:focus{
-  outline: 1px solid #ff9a00 ;
+  /* outline: 1px solid #ff9a00 ; */
 }
+.form__row--one {
+  @include phones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+}
+
 .form__label {
   flex: 1;
   margin-right: 80px;
+  @include phones {
+    margin-right: 0;
+    width: 100%;
+  }
   border-bottom: 1px solid #fff;
   padding-left: 40px;
   position: relative;
@@ -101,6 +113,10 @@
 .form__label-email {
   flex: 1;
   /* margin-right: 80px; */
+  @include phones {
+   
+    width: 100%;
+  }
   border-bottom: 1px solid #fff;
   padding-left: 40px;
   position: relative;

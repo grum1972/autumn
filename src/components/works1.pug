@@ -1,0 +1,48 @@
+script(type="text/x-template")#slider-container
+  .slider
+    .slider__content
+      +image('content/1.jpg', 'slider__content-img')
+      .slider__content-pictures
+        ul.slider-pictures
+          li.slider-pictures__item
+            a(href="").slider-pictures__link
+              .slider-pictures__img.slider-pictures__img-1
+                .overlay
+          li.slider-pictures__item.slider-pictures__item--active
+            a(href="").slider-pictures__link
+              .slider-pictures__img.slider-pictures__img-2
+                .overlay
+          li.slider-pictures__item
+            a(href="").slider-pictures__link
+              .slider-pictures__img.slider-pictures__img-3
+                .overlay
+          li.slider-pictures__item.slider-pictures__item--invisible
+            a(href="").slider-pictures__link
+              .slider-pictures__img.slider-pictures__img-4
+                .overlay
+          //- li.slider-pictures__item
+          //-   a(href="").slider-pictures__link
+          //-     +image('content/4.jpg', 'slider-pictures__img')
+        .slider__buttons
+          a.direct-btn
+            +icon('arrow-down', 'direct-icon')
+          a.direct-btn
+            +icon('arrow-down', 'direct-icon--prev')
+      .slider__number 2    
+    .slider__info
+      .slider__tags
+        ul.tags
+          li.tags__item HTML
+          li.tags__item CSS
+          li.tags__item Javascript
+      .slider__info-text
+        h3.slider__info-title Сайт школы образования
+        .slider__info-desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+      .slider__info-btns
+        a.iconed-link Посмотреть сайт
+
+script(type="text/x-template")#slider-display
+script(type="text/x-template")#slider-pictures
+script(type="text/x-template")#slider-btns
+script(type="text/x-template")#slider-info
+script(type="text/x-template")#slider-tags       

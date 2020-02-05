@@ -1,6 +1,6 @@
 const parallax = document.querySelector('.parallax');
 const items = parallax.children;
-console.log (items);
+// console.log (items);
 function moveItemDependsOnScroll(wScroll) {
   Array.from(items).forEach( item =>{
     const divider = item.dataset.speed;

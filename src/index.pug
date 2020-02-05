@@ -16,8 +16,39 @@ html(lang="en")
     //-     .icon-bg
     //-     h1 УРА                
     .wrapper
+        
       .welcome
+        .hamburger
+          nav.hamburger-menu
+            button.btn-hamb--cross
+              .hamburger-menu__btn--cross
+            ul.hamburger-menu__list
+              li.hamburger-menu__item 
+                a(href="#").hamburger-menu__link Главная
+              li.hamburger-menu__item 
+                a(href="#").hamburger-menu__link Обо мне
+              li.hamburger-menu__item 
+                a(href="#").hamburger-menu__link Навыки
+              li.hamburger-menu__item 
+                a(href="#").hamburger-menu__link Работы
+              li.hamburger-menu__item 
+                a(href="#").hamburger-menu__link Отзывы
+              li.hamburger-menu__item 
+                a(href="#").hamburger-menu__link Связаться
+          .social.social--hamburger
+            ul.social__list
+              li.social__item.social--hamburger
+                a.social__link(href="#")
+                  +icon('insta', 'social__icon') 
+              li.social__item
+                a.social__link(href="#")
+                  +icon('vk', 'social__icon') 
+              li.social__item
+                a.social__link(href="#")
+                  +icon('github', 'social__icon') 
+      
         .container
+          
           section.parallax
             .parallax__item(data-speed = '0.1')
               +image('content/parallax1.png', 'parallax-img')
@@ -31,25 +62,26 @@ html(lang="en")
               +image('content/parallax5.png', 'parallax-img')
             .parallax__item(data-speed = '0')
               +image('content/p6.png', 'parallax-img')
-        
+          
+              
           section.main-page
             header.main-page__header
-              .logo KO
+              a(href="#").logo KO
               .main-page__menu
                 nav.header__menu
                   ul.header-menu__list
                     li.header-menu__item 
-                      a.header-menu__link Главная
+                      a(href="#").header-menu__link Главная
                     li.header-menu__item 
-                      a.header-menu__link Обо мне
+                      a(href="#").header-menu__link Обо мне
                     li.header-menu__item 
-                      a.header-menu__link Навыки
+                      a(href="#").header-menu__link Навыки
                     li.header-menu__item 
-                      a.header-menu__link Работы
+                      a(href="#").header-menu__link Работы
                     li.header-menu__item 
-                      a.header-menu__link Отзывы
+                      a(href="#").header-menu__link Отзывы
                     li.header-menu__item 
-                      a.header-menu__link Связаться
+                      a(href="#").header-menu__link Связаться
               .social
                 ul.social__list
                   li.social__item
@@ -61,17 +93,15 @@ html(lang="en")
                   li.social__item
                     a.social__link(href="#")
                       +icon('github', 'social__icon') 
-              .hamburger-menu__btn
-                .hamburger-menu__btn-box
-                  .hamburger-menu__btn-pad
-                  .hamburger-menu__btn-pad
-                  .hamburger-menu__btn-pad
+              button.btn-hamb
+                .hamburger-menu__btn
+                
             .main-page__content
               .main-page__user
                 .main-page__user-subtitle Личный сайт<br> веб разработчика
                 .main-page__user-title Олег<br> Котов
             .main-page__buttons
-              a.scroll-btn Скролл
+              button(type="button").scroll-btn Скролл
               
           section.about
             .container--about
@@ -106,54 +136,16 @@ html(lang="en")
            
             #skills-component  
            
-            
+      //- works      
       section.work
         .container
           .work__title Мои работы
           .work__content
-            .slider
-              .slider__content
-                +image('content/1.jpg', 'slider__content-img')
-                .slider__content-pictures
-                  ul.slider-pictures
-                    li.slider-pictures__item
-                      a(href="").slider-pictures__link
-                        .slider-pictures__img.slider-pictures__img-1
-                          .overlay
-                    li.slider-pictures__item.slider-pictures__item--active
-                      a(href="").slider-pictures__link
-                        .slider-pictures__img.slider-pictures__img-2
-                          .overlay
-                    li.slider-pictures__item
-                      a(href="").slider-pictures__link
-                        .slider-pictures__img.slider-pictures__img-3
-                          .overlay
-                    li.slider-pictures__item.slider-pictures__item--invisible
-                      a(href="").slider-pictures__link
-                        .slider-pictures__img.slider-pictures__img-4
-                          .overlay
-                    //- li.slider-pictures__item
-                    //-   a(href="").slider-pictures__link
-                    //-     +image('content/4.jpg', 'slider-pictures__img')
-                  .slider__buttons
-                    a.direct-btn
-                      +icon('arrow-down', 'direct-icon')
-                    a.direct-btn
-                      +icon('arrow-down', 'direct-icon--prev')
-                .slider__number 2    
-              .slider__info
-                .slider__tags
-                  ul.tags
-                    li.tags__item HTML
-                    li.tags__item CSS
-                    li.tags__item Javascript
-                .slider__info-text
-                  h3.slider__info-title Сайт школы образования
-                  .slider__info-desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                .slider__info-btns
-                  a.iconed-link Посмотреть сайт
+            
+            #slider-component  
+            
       section.low
-        section.review
+        section.review(@click="checkArrows" @touchend="checkArrows")
           .leaf1
             +image('content/leaf4.png', 'leaf1__img')
           .leaf2
@@ -166,9 +158,9 @@ html(lang="en")
             .review__header
               .review__title Что обо мне говорят
               .review__buttons
-                button(@click="previous()").direct-btn.direct-btn--review
+                button(@click="previous()" :disabled="true").direct-btn.direct-btn--left
                   +icon('arrow-down', 'direct-icon--prev')
-                button(@click="next()").direct-btn.direct-btn--review
+                button(@click="next()" :disabled="false").direct-btn.direct-btn--right
                   +icon('arrow-down', 'direct-icon')
             flickity(ref="flickity" :options="flickityOptions").review__slider
               //- .review__list
@@ -252,7 +244,7 @@ html(lang="en")
                     span.form__label-title Сообщение к письму
                     textarea(placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" rows="3" name="comment").form__textarea.form__input
                 .form__row
-                  button.feedback__btn(type="submit") Отправить
+                  input(type="submit" value="Отправить").feedback__btn
       section.footer
         .container.container-footer
           .footer-left

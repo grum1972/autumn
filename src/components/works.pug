@@ -1,0 +1,77 @@
+script(type="text/x-template")#slider-container
+  .slider
+    display(
+      :works="works",
+      :currentWork="currentWork",
+      @slide="handleSlide"
+    )
+    info(
+      :currentWork="currentWork"
+    )
+
+script(type="text/x-template")#slider-display
+  .slider__content
+    img(:src="currentWork.photo", alt="").slider__content-img
+    //- +image('content/1.jpg', 'slider__content-img')
+    .slider__content-pictures
+      pictures(
+        :works="works"
+        :currentWork="currentWork"
+        
+      )
+      btns(
+        @slide="$emit('slide',$event)"
+      )
+        //- li.slider-pictures__item
+        //-   a(href="").slider-pictures__link
+        //-     +image('content/4.jpg', 'slider-pictures__img')
+      
+      
+    .slider__number {{currentWork.id}}    
+  
+
+script(type="text/x-template")#slider-pictures
+  ul.slider-pictures
+    li(:class="{'slider-pictures__item--active': works[0].id == currentWork.id}").slider-pictures__item
+      button(type="button").slider-pictures__btn
+        .slider-pictures__img.slider-pictures__img-1
+          .overlay
+    li(:class="{'slider-pictures__item--active': works[1].id == currentWork.id}").slider-pictures__item
+      button(type="button").slider-pictures__btn
+        .slider-pictures__img.slider-pictures__img-2
+          .overlay
+    li(:class="{'slider-pictures__item--active': works[2].id == currentWork.id}").slider-pictures__item
+      button(type="button").slider-pictures__btn
+        .slider-pictures__img.slider-pictures__img-3
+          .overlay
+    li(:class="{'slider-pictures__item--active': works[3].id == currentWork.id}").slider-pictures__item.slider-pictures__item--invisible
+      button(type="button").slider-pictures__btn
+        .slider-pictures__img.slider-pictures__img-4
+          .overlay
+
+script(type="text/x-template")#slider-btns
+  .slider__buttons
+    button(@click.prevent="$emit('slide','next')" href="#" :disabled="false").direct-btn.direct-btn--next
+      +icon('arrow-down', 'direct-icon')
+    button(@click.prevent="$emit('slide','prev')" href="#" :disabled="true").direct-btn.direct-btn--prev
+      +icon('arrow-down', 'direct-icon--prev')
+
+script(type="text/x-template")#slider-info
+  .slider__info
+    tags(
+      :tags="tagsArray"
+    )
+    
+    .slider__info-text
+      h3.slider__info-title {{currentWork.title}}
+      .slider__info-desc {{currentWork.desc}}
+    .slider__info-btns
+      a(:href="currentWork.link").iconed-link Посмотреть сайт
+
+
+script(type="text/x-template")#slider-tags       
+  .slider__tags
+    ul.tags
+      li.tags__item(v-for="tag in tags") {{tag}}
+      //- li.tags__item CSS
+      //- li.tags__item Javascript

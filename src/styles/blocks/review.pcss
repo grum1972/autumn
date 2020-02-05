@@ -95,14 +95,24 @@
   display: flex;
 }
 
-.direct-btn.direct-btn--review {
+.direct-btn.direct-btn--left {
   border-radius: 50%;
   background: none;
   margin-right: 30px;
   border: 1px solid #fff;
+  outline-color: transparent;
+  &:disabled {
+    opacity: 0.3;
+  }
 
-  &:last-child {
-    margin-right: 0;
+}
+.direct-btn.direct-btn--right {
+  border-radius: 50%;
+  background: none;
+  border: 1px solid #fff;
+  outline-color: transparent;
+  &:disabled {
+    opacity: 0.3;
   }
 }
 

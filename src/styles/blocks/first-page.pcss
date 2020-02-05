@@ -70,10 +70,12 @@
 .scroll-btn {
   padding: 10px;
   position: relative;
+  color: #fff;
   
   &:hover {
-    text-decoration: underline;
-  }
+    color: #ff9a00;
+   }
+   
 
   &:after {
     position: absolute;
@@ -90,5 +92,9 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+ 
   }
+  &:hover:after {
+      background-image: svg-load("scroll.svg", fill="#ff9a00");
+   }
 }

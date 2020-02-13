@@ -17,8 +17,11 @@
     width: 100%;
     display: flex;
     padding: 0 30px;
+    @include tablets {
+      padding: 0 10px;
+    }
     justify-content: space-between;
-    /* border: 1px solid #000; */
+    
 
   }
 
@@ -27,7 +30,8 @@
     padding: 18px 0;
     
     &-menu {
-      padding: 30px 0;
+      
+      background: #fff;
 
       &__list {
         display: flex;
@@ -42,7 +46,9 @@
         letter-spacing: normal;
         text-align: center;
         color: #414c63;
-
+        padding: 25px 0;
+        border-bottom: 3px solid transparent;
+        
         &:before {
           content: "";
           margin-left: 25px;
@@ -54,16 +60,22 @@
         }
 
         &:hover {
-          color: #383bcf;
-          border-bottom: 3px solid #383bcf;
+          color: #ff9a00;
+          border-bottom: 3px solid #ff9a00;
         }
       }
 
       &__link {}
     }
 
-    &-info {
+    &-content {
       display: flex;
+      width: 100%;
+      align-items: center;
+      @include phones {
+
+      }
+      /* border: 1px solid #fff; */
     }
 
     &__title{
@@ -73,7 +85,11 @@
       font-style: normal;
       line-height: 2.43;
       text-align: left;
-      margin: auto 0;
+      /* margin: auto 0; */
+      /* border: 1px solid red; */
+      @include phones {
+       display: none; 
+      }
       /* padding-top: 5px; */
     }
     
@@ -84,7 +100,11 @@
       font-style: normal;
       line-height: 1.5;
       text-align: left;
-      margin: auto 0;
+      margin-left: auto;
+      @include phones{
+      margin-left: 0;
+    } 
+      /* border: 1px solid red; */
       
       &:hover {
         text-decoration: underline;
@@ -95,6 +115,11 @@
   .user-info {
     display: flex;
     align-items: center;
+    /* border: 2px solid greenyellow; */
+    @include phones{
+      flex-direction:column;
+      align-items: flex-start;
+    }
     &--review {
       padding: 10px;
     }
@@ -117,10 +142,11 @@
       font-weight: 600;
       font-stretch: normal;
       font-style: normal;
-      line-height: 1.89;
+      line-height: 1.42;
       letter-spacing: normal;
       text-align: left;
       margin-right: 25px;
+      /* border: 1px solid blue; */
       &--review {
         
         font-weight: bold;
@@ -144,19 +170,51 @@
 
     }
   }
-
-  .about {
+  .content {
+     /* background-color: #f7f9fe;  */
+    
+  }
+  .container--about {
     display: flex;
     flex-direction: column;
     /* border: 1px solid red; */
-    padding: 60px;
+    padding: 60px 30px;
+    @include tablets {
+      padding: 20px 10px;
+    }
+    /* background-color: #f7f9fe;  */
     
-    background-color: #f7f9fe;
-
+  }  
+    
+  .about {
+    /* border: 1px solid yellow; */
+    position: relative;
+    &:before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;   
+    position: fixed;  
+    content:"";
+    background-image: url('../images/content/trainbridge.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+     opacity: 0.5; 
+    z-index: -10;
+    }
+     
+    
+    
     &__info {
       display: flex;
       align-items: center;
       padding-bottom: 60px;
+      @include phones {
+        flex-direction:column;
+        align-items: flex-start;
+        padding-bottom: 40px;
+      }
+      /* border: 2px solid yellow; */
     }
     &__section {
       display: flex;
@@ -164,14 +222,20 @@
       flex-wrap: wrap;
       /* flex-direction: row; */
       margin-left: -30px;
-      /* border: 2px solid blue; */
+      
 
     }
     &__form-title {
       border: 0;
       width: 60%;
+      @include tablets {
+        
+      }
       padding: 5px 0;
       flex: .6;
+      @include tablets {
+       flex: 1; 
+      }
       border-bottom: 1px solid #000;
       color: #414c63;
       background: 0;
@@ -190,8 +254,8 @@
     display: flex;
     flex-direction: column;
     /* border: 1px solid red; */
-    padding: 60px;
-    background-color: #f7f9fe;
+    padding: 60px 30px;
+    /* background-color: #f7f9fe; */
     &__form-title {
       border: 0;
       width: 100%;
@@ -214,7 +278,7 @@
   
   .review {
     /* border: 1px solid red; */
-    padding: 60px;
+    padding: 60px 30px;
     
     &__list {
       
@@ -228,13 +292,25 @@
     
     &__item{
       width: calc(100% / 3 - 30px);
+      @include tablets {
+        width: calc(50% - 30px);
+      }
+      @include phones {
+        width: calc(100% - 30px);
+      }
       margin-left: 30px;
       padding: 20px;
       margin-bottom: 30px;
       box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
+      background: #FFF;
       &--add{
-       
-        background-image: linear-gradient(to right, #006aed, #3f35cb);
+        /* @include desktop {
+          background: red;
+        } */
+        background-image: linear-gradient(to right, #f29400, #ea7400);
+        &:hover{
+            background-image: linear-gradient(to right, #ff7f00, #ff9d00);
+        }  
       }
       &--work{
        padding: 0;
@@ -246,6 +322,8 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      
+      
       
     }
     &__slicer{
@@ -263,10 +341,19 @@
       flex-direction: column;
       align-items: center;
       margin: 75px 0 ;
+        @include phones {
+          margin: 30px 0 ;
+        }
+
+      
+      
 
       &-btn {
-        
+      
         width: 100px;
+        @include phones {
+          width: 100%;
+        }
         font-size: 18px;
         font-weight: bold;
         font-stretch: normal;
@@ -280,23 +367,40 @@
         flex-direction: column;
         align-items: center;
         position: relative;
+        @include phones {
+          flex-direction: row;
+          justify-content: flex-start;
+        }
 
         &:before {
-        
+          
           width: 150px;
           height: 150px;
+          @include phones {
+            width: 50px;
+          height: 50px;
+          }
           border: 2px solid #fff;
           border-radius: 50%;
           content:"";
           margin-bottom: 20px;
-          
+          @include phones {
+            margin-right: 20px;
+            margin-bottom: 0px;
+           }
         
         }
         &:after {
+          
           position: absolute;
           margin-top: 60px; 
           
           font-size: 72px;
+          @include phones {
+            margin-top: 0;
+            margin-left: 19px;
+            font-size: 36px;
+          }
           font-weight: 300;
           line-height: .42;
           content:"+";
@@ -331,7 +435,11 @@
       text-align: left;
       color: rgba(65, 76, 99, 0.5);
       background: none;
-      
+      &:hover {
+        text-decoration: underline;
+        color: #ff9a00; 
+      }
+
       display: flex;
       align-items: center;
       &--edit{
@@ -371,7 +479,7 @@
 .tags__btn {
   padding: 10px 15px;
   border-radius: 15px;
-  background-color: #f4f4f4;
+  background-color: #ff2f4;
   color: #2f3642;
   display: flex;
       align-items: center;
@@ -436,39 +544,45 @@
      &__title {
        padding: 0 10px;
        font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.67;
-  letter-spacing: normal;
-  text-align: left;
-  color:#414c63;
-  margin-bottom: 25px;
+       font-weight: bold;
+       font-stretch: normal;
+       font-style: normal;
+       line-height: 1.67;
+       letter-spacing: normal;
+       text-align: left;
+       color: #414c63;
+       margin-bottom: 25px;
      }
+
      &__text {
        padding: 0 10px;
        padding-right: 20px;
        font-size: 16px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.88;
-  letter-spacing: normal;
-  text-align: left;
-  color: rgba(65, 76, 99, 0.7);
-  margin-bottom: 30px;
+       font-weight: 600;
+       font-stretch: normal;
+       font-style: normal;
+       line-height: 1.88;
+       letter-spacing: normal;
+       text-align: left;
+       color: rgba(65, 76, 99, 0.7);
+       margin-bottom: 30px;
      }
+
      &__link {
        padding: 0 10px;
        font-size: 16px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.88;
-  letter-spacing: normal;
-  text-align: left;
-  color: #383bcf;
-  margin-bottom: 20px;
+       font-weight: 600;
+       font-stretch: normal;
+       font-style: normal;
+       line-height: 1.88;
+       letter-spacing: normal;
+       text-align: left;
+       color: #ff9a00;
+       margin-bottom: 20px;
+       /* &:hover {
+         text-decoration: underline;
+       } */
+       
      }
      &__controls{
       display: flex;
@@ -479,7 +593,8 @@
     margin-bottom: 30px;
     margin-left: 30px;
     box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
-    /* border: 2px solid purple; */
+    background: rgba(255,255,255,.9);
+    
     &__title{
       display: flex;
       justify-content: space-between;
@@ -491,7 +606,10 @@
       align-items: center;
       justify-content: flex-end;
       margin-left: 60px;
-      /* border: 1px solid #000; */
+      @include tablets {
+        margin-left: 20px;
+      }
+      
 
       /* border: 1px solid red; */
     }
@@ -517,6 +635,12 @@
     &__wrapper--work {
       display: flex;
       margin-top: 50px;
+      /* border: 1px solid #000; */
+      @include tablets {
+        flex-direction:column;
+        align-items: center;
+        /* width: 80%; */
+      }
     }
     &__content {
       min-height: 200px;
@@ -528,7 +652,14 @@
       &--work {
         
        width: 50%; 
-       
+       @include tablets {
+         padding: 20px 100px 0 100px;
+         width: 100%; 
+       }
+       @include phones {
+         padding: 0;
+         width: 100%; 
+       }
       }
     }
     &__load-content {
@@ -543,12 +674,26 @@
       
 
     }
+    &__edit-content {
+      display: none;
+      @include tablets {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 110px;
+      }
+      @include phones {
+        padding: 0px;
+      }
+    }
     &__load {
-      width: 50%;
       
+      width: 50%;
       padding: 0 10px;
       margin-right: 20px;
-      
+      @include tablets {
+        display: none;
+      }
       
       &-text {
         margin-top: 10px;
@@ -570,11 +715,16 @@
       flex-flow: row nowrap; 
       margin-bottom: 10px; 
       
+     
       
       &-name {
         
          width:70%; 
+         @include tablets{
+         width:60%; 
+         }
         /* outline:none; */
+        
         font-size: 16px;
         font-weight: normal;
         font-stretch: normal;
@@ -585,9 +735,13 @@
         color: #414c63;
         margin-right: 20px;
         border: none;
+        /* border: 1px solid red; */
         background: none;
         &--edit {
           border-bottom: 1px solid #000;
+          &:hover{
+          border-bottom: 1px solid #ff9a00;
+          } 
         }
         
         
@@ -595,7 +749,10 @@
       &-value{
 
         border:none;
-        width: 45px;
+        width: 60%;
+        @include tablets{
+           width: 50%;
+         }
         font-size: 16px;
         font-weight: normal;
         font-stretch: normal;
@@ -608,12 +765,18 @@
         
       }
       &-value-wrapper {
-         width: 12%;
+        
+          width: 20%; 
+         /* border: 1px solid #000; */
         &--edit {
-          border-bottom: 1px solid #000;  
+          border-bottom: 1px solid #000; 
+         &:hover{
+          border-bottom: 1px solid #ff9a00;
+          } 
         }         
          /* border: 2px solid red;  */
         &:after {
+          /* border: 1px solid green; */
           font-size: 16px;
           width: 20px;
           height: 20px;
@@ -655,7 +818,10 @@
       
       
       &-value-wrapper {
-        border-bottom: 1px solid #1f232d;
+        border-bottom: 1px solid #000;
+         &:hover{
+          border-bottom: 1px solid #ff9a00;
+        }
         margin-right: 20px;
         &:after {
           width: 20px;
@@ -681,31 +847,37 @@
         border:none;  
         border-bottom: 1px solid #000;
         padding: 15px;
+         &:hover{
+          border-bottom: 1px solid #ff9a00;
+        }
         
       }
       &-btn{
-        /* border: 1px solid red; */
+        /* border: 2px solid red; */
         font-size: 30px;
         font-weight: 600;
         font-style: normal;
         line-height: 1.5;
         letter-spacing: normal;
         text-align: left;
-        color: #383bcf;
+        color: #ff9a00;
         background: none;
         margin-right: -25px;
-
+        &:hover:before{
+            background-image: linear-gradient(to right, #ff7f00, #ff9d00);
+            
+          }  
         &:before {
           width: 100%;
           height: 100%;
-          padding: 1px 11px;
+          padding: 1px 13px;
           content: "+";
           font-size: 30px;
           margin-right: 15px;
           color: #fff;
           border-radius: 50%;
-          background-image: linear-gradient(to right, #006aed, #3f35cb);
-
+          background-image: linear-gradient(to right, #f29400, #ea7400);
+          
         }
       }
     }
@@ -721,6 +893,9 @@
     text-align: left;
     color: #414c63;
     margin-right: 60px;
+    @include phones {
+      margin-bottom: 20px;
+    }
   }
   .add__btn {
     font-size: 16px;
@@ -729,8 +904,16 @@
     line-height: 2.12;
     letter-spacing: normal;
     text-align: left;
-    color: #383bcf;
+    color: #ff9a00;
+    &:hover {
+      text-decoration: underline;
+      
+    }
     background: none;
+     &:hover:before{
+            background-image: linear-gradient(to right, #ff7f00, #ff9d00);
+            
+          }  
     &:before {
       width: 100%;
       height: 100%;
@@ -740,13 +923,16 @@
       margin-right: 15px;
       color:#fff;
       border-radius: 50%;
-      background-image: linear-gradient(to right, #006aed, #3f35cb);
+      background-image: linear-gradient(to right,  #f29400, #ea7400);
 
     }
   }
   .broad {
     &--half {
       width: calc(50% - 30px);
+      @include  phones {
+        width: 100%;  
+      }       
     }
     &--full {
       margin-left: 0;
@@ -757,12 +943,16 @@
   
   width: 100%;
   margin-right: 200px;
-  
+  @include tablets {
+    margin-right: 0px;
+  }
 }
 .form__content--review {
   margin-top: 50px;
   display: flex;
-  
+  @include phones {
+    flex-direction:column;
+  }
 }
 .form__review-row {
    width: 100%;
@@ -772,11 +962,21 @@
 .form__review-row--one {
    display: flex;
    width: 100%;
-  
+@include phones {
+   display: block;
+}  
+}
+.form__work-row--btn {
+  display: flex;
+  justify-content: flex-end;
+  @include tablets{ 
+    justify-content: center;  
+  }
 }
 .form__review-row--btn {
   display: flex;
   justify-content: flex-end;
+  
 }
 .form__user {
   
@@ -793,8 +993,10 @@
   line-height: 2.12;
   letter-spacing: normal;
   text-align: center;
-  color: #383bcf;
-  
+  color: #ff9a00;
+  &:hover {
+    text-decoration: underline;
+  }
   
   }
 }
@@ -823,6 +1025,7 @@
   width: 100%;  
   margin-right: 30px;
   
+  
   &:last-child {
     margin-right: 0;
   }
@@ -837,7 +1040,8 @@
   letter-spacing: normal;
   text-align: left;
   color: rgba(65, 76, 99, 0.5);
-margin-bottom: 20px;  
+margin-bottom: 20px;
+
 
 }
 .form__input::placeholder {
@@ -853,6 +1057,9 @@ margin-bottom: 20px;
   
 
 }
+.form__input:hover::placeholder {
+  color: #ff9a00;
+}
 
 .form__input {
   width: 100%;
@@ -860,6 +1067,13 @@ margin-bottom: 20px;
   background: none;
   padding-bottom: 20px;
   border-bottom: 1px solid #000;
+  margin-bottom: 10px;
+  &:hover {
+    border-bottom: 1px solid #ff9a00;
+  }
+}
+.form__textarea:hover::placeholder {
+  color: #ff9a00;
 }
 
 .form__textarea::placeholder {
@@ -878,7 +1092,10 @@ margin-bottom: 20px;
   background: none;
   padding: 25px 20px;
   border: solid 1px ;
-  border-color: rgba (65,76,99,.2)
+  border-color: rgba (65,76,99,.2);
+  &:hover {
+    border-color: #ff9a00;
+  }
 }
 .save__btn {
   font-weight: bold;
@@ -886,7 +1103,10 @@ margin-bottom: 20px;
   margin-left: 50px;
   padding: 24px 40px;
   border-radius: 30px;
-  background-image: linear-gradient(to right, #006aed, #3f35cb);
+  &:hover{
+            background-image: linear-gradient(to right, #ff7f00, #ff9d00);
+          }  
+  background-image: linear-gradient(to right, #f29400, #ea7400);
   color:#fff;
   
   &--load {
@@ -905,13 +1125,14 @@ margin-bottom: 20px;
   .wrapper  
     header.header
       .container
-        .header-info
-          .user-info
-            .user-info__photo
+        .header-content
+          
+          .user-info__photo
               img(src="../images/content/user.jpg").user-info__photo-img
+          .user-info
             .user-info__name Котов Олег
-          .header__title Панель администрирования
-        a.header-btn Выйти
+            .header__title Панель администрирования
+            a.header-btn Выйти
     nav.header-menu
       .container
         ul.header-menu__list
@@ -922,79 +1143,80 @@ margin-bottom: 20px;
           li.header-menu__item
             a(href="#").header-menu__link Отзывы
     main.content 
-      .container.about
-        .about__info
-          h2.section__title Блок "Обо мне"
-          a(href="#").add__btn Добавить группу
-        .about__section
-          form.form.about__form.broad--half
-            .form__title 
-              input(name="name" value="Название новой группы" disabled="true").about__form-title
-              .form__buttons
-                button(name="add").form__add-btn
-                button(name="remove").form__remove-btn
-            .form-slicer
-            .form__content
-            .form__controls
-              input(name="name" type="text" placeholder="Новый навык").form__controls-name
-              .form__controls-value-wrapper
-                input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-              button(href="").form__controls-btn
-            
-          form.form.about__form.broad--half
-            .form__title 
-              input(name="name" value="Workflow").about__form-title
-              .form__buttons
-                button(name="add").form__add-btn
-                button(name="remove").form__remove-btn
-            .form-slicer
-            .form__content.form__content--about
-              .form__row
-                input(name="name" type="text" placeholder="HTML").form__row-name
-                .form__row-value-wrapper
-                  input(name="name" type="number" placeholder="50").form__row-value
+      .about
+        .container.container--about
+          .about__info
+            h2.section__title Блок "Обо мне"
+            a(href="#").add__btn Добавить группу
+          .about__section
+            form.form.about__form.broad--half
+              .form__title 
+                input(name="name" value="Название новой группы" disabled="true").about__form-title
                 .form__buttons
-                  button(name="add").form__edit-btn
-                  button(name="remove").form__bin-btn
-              .form__row
+                  button(name="add").form__add-btn
+                  button(name="remove").form__remove-btn
+              .form-slicer
+              .form__content
+              .form__controls
+                input(name="name" type="text" placeholder="Новый навык").form__controls-name
+                .form__controls-value-wrapper
+                  input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
+                button(href="").form__controls-btn
+              
+            form.form.about__form.broad--half
+              .form__title 
+                input(name="name" value="Workflow").about__form-title
+                .form__buttons
+                  button(name="add").form__add-btn
+                  button(name="remove").form__remove-btn
+              .form-slicer
+              .form__content.form__content--about
+                .form__row
                   input(name="name" type="text" placeholder="HTML").form__row-name
                   .form__row-value-wrapper
                     input(name="name" type="number" placeholder="50").form__row-value
                   .form__buttons
                     button(name="add").form__edit-btn
                     button(name="remove").form__bin-btn
-            .form__controls
-              input(name="name" type="text" placeholder="Новый навык").form__controls-name
-              .form__controls-value-wrapper
-                input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-              button(href="").form__controls-btn
-          form.form.about__form.broad--half
-            .form__title.form__title--edit
-              input(name="name" value="Frontend").about__form-title
-              .form__buttons
-                button(name="add").form__edit-btn
-            .form-slicer
-            .form__content.form__content--about
-              .form__row
-                input(name="name" type="text" placeholder="HTML").form__row-name.form__row-name--edit
-                .form__row-value-wrapper.form__row-value-wrapper--edit
-                  input(name="name" type="number" placeholder="50" min="0" max="100").form__row-value
+                .form__row
+                    input(name="name" type="text" placeholder="HTML").form__row-name
+                    .form__row-value-wrapper
+                      input(name="name" type="number" placeholder="50").form__row-value
+                    .form__buttons
+                      button(name="add").form__edit-btn
+                      button(name="remove").form__bin-btn
+              .form__controls
+                input(name="name" type="text" placeholder="Новый навык").form__controls-name
+                .form__controls-value-wrapper
+                  input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
+                button(href="").form__controls-btn
+            form.form.about__form.broad--half
+              .form__title.form__title--edit
+                input(name="name" value="Frontend").about__form-title
                 .form__buttons
-                  button(name="add").form__add-btn
-                  button(name="remove").form__remove-btn
-              .form__row
-                  input(name="name" type="text" placeholder="HTML").form__row-name
-                  .form__row-value-wrapper
+                  button(name="add").form__edit-btn
+              .form-slicer
+              .form__content.form__content--about
+                .form__row
+                  input(name="name" type="text" placeholder="HTML").form__row-name.form__row-name--edit
+                  .form__row-value-wrapper.form__row-value-wrapper--edit
                     input(name="name" type="number" placeholder="50" min="0" max="100").form__row-value
                   .form__buttons
-                    button(name="add").form__edit-btn
-                    button(name="remove").form__bin-btn
-            .form__controls
-              input(name="name" type="text" placeholder="Новый навык").form__controls-name
-              .form__controls-value-wrapper
-                input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-              button(href="").form__controls-btn
-      //- Работы
+                    button(name="add").form__add-btn
+                    button(name="remove").form__remove-btn
+                .form__row
+                    input(name="name" type="text" placeholder="HTML").form__row-name
+                    .form__row-value-wrapper
+                      input(name="name" type="number" placeholder="50" min="0" max="100").form__row-value
+                    .form__buttons
+                      button(name="add").form__edit-btn
+                      button(name="remove").form__bin-btn
+              .form__controls
+                input(name="name" type="text" placeholder="Новый навык").form__controls-name
+                .form__controls-value-wrapper
+                  input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
+                button(href="").form__controls-btn
+        //- Работы
 
       .container.review-edit
         .review-edit__info
@@ -1009,6 +1231,9 @@ margin-bottom: 20px;
                 .form__load-content
                   .form__load-text Перетащите или загрузите для загрузки изображения
                   button(type="submit" value="Сохранить").save__btn.save__btn--load Загрузить
+              .form__edit-content
+                img(src="../images/content/1.jpg")  
+                button(type="reset" value="Отмена").edit-content__btn.form__user-photo-btn Изменить превью
               form(action).form__content.form__content--work
                 .form__review  
                   .form__review-row
@@ -1040,7 +1265,7 @@ margin-bottom: 20px;
                         li.tags__item 
                           button.tags__btn Javascript
       
-                  .form__review-row.form__review-row--btn
+                  .form__review-row.form__work-row--btn
                     button(type="reset" value="Отмена").reset__btn.form__user-photo-btn Отмена
                     button(type="submit" value="Сохранить").save__btn Сохранить
 

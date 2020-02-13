@@ -231,20 +231,43 @@ html(lang="en")
           .container
             .feedback__title Cвязаться со мной
             .form__wrapper
-              form(action).form__content
+              form(action).form__content(@submit.prevent="submitForm")
                 .form__row.form__row--one
-                  label.form__label
+                  label.form__label(:class = "{'form__label--error': !nameValid}")
                     span.form__label-title Введите ваше имя
-                    input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="name")
-                  label.form__label-email
+                    input.form__input.form__input--name(
+                      type="text" 
+                      placeholder="Ковальчук Дмитрий" 
+                      name="name"
+                      @input="validateName"
+                      onFocus="this.placeholder=''"
+                      )
+                    .tooltip-error(:class = "{'tooltip-error--visible': !nameValid}")  {{nameError}}
+                  label.form__label-email(:class = "{'form__label-email--error': !emailValid}")
                     span.form__label-title Ввведите ваше email
-                    input.form__input(type="text" placeholder="loftschool@study.com" name="email")
+                    input.form__input.form__input--email(
+                      type="text" 
+                      placeholder="loftschool@study.com" 
+                      name="email"
+                      @input="validateEmail"
+                      onFocus="this.placeholder=''")
+                    .tooltip-error(:class = "{'tooltip-error--visible': !emailValid}")  {{emailError}}
                 .form__row
-                  label.form__label-message
+                  label.form__label-message(:class = "{'form__label-message--error': !messageValid}")
                     span.form__label-title Сообщение к письму
-                    textarea(placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" rows="3" name="comment").form__textarea.form__input
+                    textarea.form__textarea.form__input.form__input--message(
+                      placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" 
+                      rows="3" 
+                      name="comment"
+                      @input="validateMessage"
+                      onFocus="this.placeholder=''")
+                    .tooltip-error(:class = "{'tooltip-error--visible': !messageValid}")  {{messageError}}
                 .form__row
                   input(type="submit" value="Отправить").feedback__btn
+              .overlay1(:class="{'overlay1--disable': overlayHidden}" @click="hideOverlay")
+                .overlay1__content
+                  .overlay1__message {{resultMessage}} 
+                  button.overlay1__close(@click='hideOverlay') Закрыть
       section.footer
         .container.container-footer
           .footer-left

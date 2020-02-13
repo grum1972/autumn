@@ -24,7 +24,172 @@
     
 
   }
+  
+  .auth{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+    &__wrapper{
+      
+      background: #fff;
+      /* border: 1px solid green; */
+      width: 550px;
+      padding: 60px;
+      @include phones {
+        width: 100%;
+        height: 100%;  
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  
+  &-form {
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+    
+    &__label-user {
+      width: 100%;
+      
 
+      border-bottom: 1px solid #2d3c4e;
+      padding-left: 40px;
+      margin-bottom: 40px;
+      position: relative;
+
+      &:hover {
+        border-bottom: 1px solid #ff9a00;
+      }
+
+      &:after {
+        position: absolute;
+        bottom: 10px;
+        left: -60px;
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-left: 60px;
+        background-image: svg-load("user.svg", fill="#2d3c4e");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: .3;
+      }
+
+      &:hover:after {
+        background-image: svg-load("user.svg", fill="#ff9a00");
+        opacity: 1;
+      }
+
+    }
+    &__label-key {
+      
+      width: 100%;
+      @include phones {
+        margin-right: 0;
+        width: 100%;
+      }
+
+      border-bottom: 1px solid #2d3c4e;
+      padding-left: 40px;
+      position: relative;
+
+      &:hover {
+        border-bottom: 1px solid #ff9a00;
+      }
+
+      &:after {
+        position: absolute;
+        bottom: 10px;
+        left: -60px;
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-left: 60px;
+        background-image: svg-load("key.svg", fill="#2d3c4e");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: .3;
+      }
+
+      &:hover:after {
+        background-image: svg-load("key.svg", fill="#ff9a00");
+        opacity: 1;
+      }
+
+    }
+    &__input {
+      
+      width: 100%;
+      border: none;
+      background: none;
+      font-size: 18px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2.67;
+      letter-spacing: normal;
+      text-align: left;
+      color: #414c63;
+    }
+    &__input::placeholder {
+      font-size: 18px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2.67;
+      letter-spacing: normal;
+      text-align: left;
+      color: rgba(65, 76, 99, 0.3);
+      /* margin-top: 20px; */
+    }
+
+    &__title {
+      color: rgba(65, 76, 99, 1);
+      font-size: 30px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: left;
+    }
+    &__label-title {
+      color: rgba(65, 76, 99, 0.3);
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.88;
+      letter-spacing: normal;
+      text-align: left;
+    }
+    &__btn {
+      margin-top: 40px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 30px 120px;
+      border-radius: 35px 0 35px 0;
+
+      &:hover {
+        background-image: linear-gradient(to right, #ff7f00, #ff9d00);
+      }
+
+      background-image: linear-gradient(to right, #f29400, #ea7400);
+      color:#fff;
+
+    }
+  }
+  }
   .header {
     background-image: linear-gradient(to right, #3e3e59, #454573);
     padding: 18px 0;
@@ -116,6 +281,7 @@
     display: flex;
     align-items: center;
     /* border: 2px solid greenyellow; */
+    width: 100%;
     @include phones{
       flex-direction:column;
       align-items: flex-start;
@@ -1122,7 +1288,21 @@ margin-bottom: 20px;
 </style>
 
 <template lang="pug">
-  .wrapper  
+  .wrapper
+    .auth
+      .auth__wrapper
+        form.auth-form 
+          span.auth-form__title Авторизация
+          label.auth-form__label-user
+            .auth-form__label-title
+              span Логин
+            input.auth-form__input(type="text" placeholder="Login" name="login")
+          label.auth-form__label-key
+            .auth-form__label-title
+              span Пароль
+            input.auth-form__input(type="password" placeholder="Password" name="pass")  
+          button(type="submit" value="Отправить").auth-form__btn Отправить
+
     header.header
       .container
         .header-content

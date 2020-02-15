@@ -1287,303 +1287,66 @@ margin-bottom: 20px;
 }
 </style>
 
+
+
 <template lang="pug">
   .wrapper
-    .auth
-      .auth__wrapper
-        form.auth-form 
-          span.auth-form__title Авторизация
-          label.auth-form__label-user
-            .auth-form__label-title
-              span Логин
-            input.auth-form__input(type="text" placeholder="Login" name="login")
-          label.auth-form__label-key
-            .auth-form__label-title
-              span Пароль
-            input.auth-form__input(type="password" placeholder="Password" name="pass")  
-          button(type="submit" value="Отправить").auth-form__btn Отправить
-
-    header.header
-      .container
-        .header-content
-          
-          .user-info__photo
-              img(src="../images/content/user.jpg").user-info__photo-img
-          .user-info
-            .user-info__name Котов Олег
-            .header__title Панель администрирования
-            a.header-btn Выйти
-    nav.header-menu
-      .container
-        ul.header-menu__list
-          li.header-menu__item
-            a(href="#").header-menu__link Обо мне
-          li.header-menu__item
-            a(href="#").header-menu__link Работы
-          li.header-menu__item
-            a(href="#").header-menu__link Отзывы
-    main.content 
-      .about
-        .container.container--about
-          .about__info
-            h2.section__title Блок "Обо мне"
-            a(href="#").add__btn Добавить группу
-          .about__section
-            form.form.about__form.broad--half
-              .form__title 
-                input(name="name" value="Название новой группы" disabled="true").about__form-title
-                .form__buttons
-                  button(name="add").form__add-btn
-                  button(name="remove").form__remove-btn
-              .form-slicer
-              .form__content
-              .form__controls
-                input(name="name" type="text" placeholder="Новый навык").form__controls-name
-                .form__controls-value-wrapper
-                  input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-                button(href="").form__controls-btn
-              
-            form.form.about__form.broad--half
-              .form__title 
-                input(name="name" value="Workflow").about__form-title
-                .form__buttons
-                  button(name="add").form__add-btn
-                  button(name="remove").form__remove-btn
-              .form-slicer
-              .form__content.form__content--about
-                .form__row
-                  input(name="name" type="text" placeholder="HTML").form__row-name
-                  .form__row-value-wrapper
-                    input(name="name" type="number" placeholder="50").form__row-value
-                  .form__buttons
-                    button(name="add").form__edit-btn
-                    button(name="remove").form__bin-btn
-                .form__row
-                    input(name="name" type="text" placeholder="HTML").form__row-name
-                    .form__row-value-wrapper
-                      input(name="name" type="number" placeholder="50").form__row-value
-                    .form__buttons
-                      button(name="add").form__edit-btn
-                      button(name="remove").form__bin-btn
-              .form__controls
-                input(name="name" type="text" placeholder="Новый навык").form__controls-name
-                .form__controls-value-wrapper
-                  input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-                button(href="").form__controls-btn
-            form.form.about__form.broad--half
-              .form__title.form__title--edit
-                input(name="name" value="Frontend").about__form-title
-                .form__buttons
-                  button(name="add").form__edit-btn
-              .form-slicer
-              .form__content.form__content--about
-                .form__row
-                  input(name="name" type="text" placeholder="HTML").form__row-name.form__row-name--edit
-                  .form__row-value-wrapper.form__row-value-wrapper--edit
-                    input(name="name" type="number" placeholder="50" min="0" max="100").form__row-value
-                  .form__buttons
-                    button(name="add").form__add-btn
-                    button(name="remove").form__remove-btn
-                .form__row
-                    input(name="name" type="text" placeholder="HTML").form__row-name
-                    .form__row-value-wrapper
-                      input(name="name" type="number" placeholder="50" min="0" max="100").form__row-value
-                    .form__buttons
-                      button(name="add").form__edit-btn
-                      button(name="remove").form__bin-btn
-              .form__controls
-                input(name="name" type="text" placeholder="Новый навык").form__controls-name
-                .form__controls-value-wrapper
-                  input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-                button(href="").form__controls-btn
-        //- Работы
-
-      .container.review-edit
-        .review-edit__info
-          h2.section__title Блок "Работы"
-        .review-edit__section
-          .form.broad--full
-            .form__title 
-              input(name="name" value="Редактирование работы").review-edit__form-title
-            .form-slicer
-            .form__wrapper.form__wrapper--work
-              .form__load
-                .form__load-content
-                  .form__load-text Перетащите или загрузите для загрузки изображения
-                  button(type="submit" value="Сохранить").save__btn.save__btn--load Загрузить
-              .form__edit-content
-                img(src="../images/content/1.jpg")  
-                button(type="reset" value="Отмена").edit-content__btn.form__user-photo-btn Изменить превью
-              form(action).form__content.form__content--work
-                .form__review  
-                  .form__review-row
-                    label.form__label
-                      .form__label-title
-                        span Название
-                      input.form__input(type="text" placeholder="Дизайн сайта для авто салона Porsche" name="name")
-                    label.form__label
-                      .form__label-title
-                        span Ссылка
-                      input.form__input(type="text" placeholder="https://www.porsche-pulkovo.ru" name="link")
-                  .form__review-row
-                    label.form__label-message
-                      .form__label-title
-                        span Описание
-                      textarea(placeholder="Порше Центр Пулково - является официальным дилером марки Порше в Санкт-Петербурге и предоставляет полный цикл услуг по продаже и сервисному обслуживанию автомобилей" rows="5" name="comment").form__textarea
-                  .form__review-row
-                    label.form__label
-                      .form__label-title
-                        span Добавление тэга
-                      input.form__input(type="text" placeholder="Jquery, Vue.js, HTML5" name="name")                      
-                  .form__review-row
-                    .work__tags
-                      ul.tags
-                        li.tags__item 
-                          button.tags__btn HTML
-                        li.tags__item 
-                          button.tags__btn CSS
-                        li.tags__item 
-                          button.tags__btn Javascript
-      
-                  .form__review-row.form__work-row--btn
-                    button(type="reset" value="Отмена").reset__btn.form__user-photo-btn Отмена
-                    button(type="submit" value="Сохранить").save__btn Сохранить
-
-        .review__section
-          ul.review__list
-            li.review__item.review__item--add
-              .review__content
-                .review__add
-                  button.review__add-btn Добавить работу
-            li.review__item.review__item--work
-              .work__preview
-                img(src="../images/content/1.jpg")
-                .work__preview-tags
-                  ul.preview-tags__list
-                    li.preview-tags__item HTML
-                    li.preview-tags__item CSS
-                    li.preview-tags__item Javascript    
-                    li.preview-tags__item Javascript 
-                    li.preview-tags__item Javascript 
-              .work__content
-                .work__title Сайт школы образования
-                .work__text 
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                .work__link  http://loftschool.ru
-                .work__controls
-                  button.review__btn.review__btn--edit Править
-                  button.review__btn.review__btn--remove Удалить
-            li.review__item.review__item--work
-              .work__preview
-                img(src="../images/content/2.jpg")
-              .work__content
-                .work__title Сайт школы образования
-                .work__text 
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                .work__link  http://loftschool.ru
-                .work__controls
-                  button.review__btn.review__btn--edit Править
-                  button.review__btn.review__btn--remove Удалить
-            li.review__item.review__item--work
-              .work__preview
-                img(src="../images/content/3.jpg")
-              .work__content
-                .work__title Сайт школы образования
-                .work__text 
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                .work__link  http://loftschool.ru
-                .work__controls
-                  button.review__btn.review__btn--edit Править
-                  button.review__btn.review__btn--remove Удалить
- 
-
-      
-              
-      //- Отзывы
-      .container.review-edit
-        .review-edit__info
-          h2.section__title Блок "Отзывы"
-        .review-edit__section
-          .form.broad--full
-            .form__title 
-              input(name="name" value="Новый отзыв").review-edit__form-title
-            .form-slicer
-            .form__wrapper
-              form(action).form__content.form__content--review
-                .form__user
-                  .form__user-photo
- 
-                  button.form__user-photo-btn Добавить фото
-                .form__review  
-                  .form__review-row.form__review-row--one
-                    label.form__label
-                      .form__label-title
-                        span Имя автора
-                      input.form__input(type="text" placeholder="Ковальчук Дмитрий" name="name")
-                    label.form__label
-                      .form__label-title
-                        span Титул автора
-                      input.form__input(type="text" placeholder="Основатель LoftSchool" name="occup")
-                  .form__review-row
-                    label.form__label-message
-                      .form__label-title
-                        span Отзыв
-                      textarea(placeholder="Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!" rows="5" name="comment").form__textarea
-                  .form__review-row.form__review-row--btn
-                    button(type="reset" value="Отмена").reset__btn.form__user-photo-btn Отмена
-                    button(type="submit" value="Сохранить").save__btn Сохранить
-      
-      
-        
-        
-        .review__section
-          ul.review__list
-            li.review__item.review__item--add
-              .review__content
-                .review__add
-                  button.review__add-btn Добавить отзыв
-            li.review__item
-              .review__content
-                .user-info.user-info--review
-                  .user-info__photo
-                    img(src="../images/content/sv.jpg").user-info__photo-img
-                  .user-info__desc
-                    .user-info__name.user-info__name--review Владимир Сабанцев
-                    .user-info__occup Преподаватель
-                .review__slicer
-                .review__text 
-                  p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                .review__controls
-                  button.review__btn.review__btn--edit Править
-                  button.review__btn.review__btn--remove Удалить
-            li.review__item
-              .review__content
-                .user-info.user-info--review
-                  .user-info__photo
-                    img(src="../images/content/dk.jpg").user-info__photo-img
-                  .user-info__desc
-                    .user-info__name.user-info__name--review Ковальчук Дмитрий
-                    .user-info__occup Основатель Loftschool
-                .review__slicer
-                .review__text 
-                  p Этот код выдержит любые иasdasdsad sadasdasd asdads спытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                .review__controls
-                  button.review__btn.review__btn--edit Править
-                  button.review__btn.review__btn--remove Удалить
-            li.review__item
-              .review__content
-                .user-info.user-info--review
-                  .user-info__photo
-                    img(src="../images/content/dk.jpg").user-info__photo-img
-                  .user-info__desc
-                    .user-info__name.user-info__name--review Ковальчук Дмитрий
-                    .user-info__occup Основатель Loftschool
-                .review__slicer
-                .review__text 
-                  p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишadsdsadds sadasd sadas dasd sa dsasdsad sadком старых браузерах
-                .review__controls
-                  button.review__btn.review__btn--edit Править
-                  button.review__btn.review__btn--remove Удалить
-
-
+    template(v-if="$route.meta.public")  
+      router-view
+    template(v-if="!$route.meta.public")
+      header.header
+        .container
+          .header-content
+            
+            .user-info__photo
+                img(src="../images/content/user.jpg").user-info__photo-img
+            .user-info
+              .user-info__name Котов Олег
+              .header__title Панель администрирования
+              a(@click='goExit').header-btn Выйти
+      nav.header-menu
+        .container
+          ul.header-menu__list
+            li.header-menu__item
+              a(@click='goAbout').header-menu__link Обо мне
+            li.header-menu__item
+              a(@click='goWorks').header-menu__link Работы
+            li.header-menu__item
+              a(@click='goReviews').header-menu__link Отзывы
+      main.content
+        router-view 
 </template>
+
+<script>
+import login from './components/pages/login';
+import works from './components/pages/works.vue';
+import about from './components/pages/about.vue';
+import reviews from './components/pages/reviews';
+export default {
+  name: 'app',
+  components: {
+    login,
+    about,
+    works,
+    reviews
+  },
+  data (){
+    return{
+    }
+  },
+  methods: {
+    goReviews(){
+      this.$router.push('/reviews');
+    },
+    goAbout(){
+      this.$router.push('/about');
+    },
+    goWorks(){
+      this.$router.push('/works');
+    },
+    goExit(){
+      this.$router.push('/admin');
+    }
+  }
+}
+</script>

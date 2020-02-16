@@ -352,70 +352,7 @@
     
   }  
     
-  .about {
-    /* border: 1px solid yellow; */
-    position: relative;
-    &:before {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;   
-    position: fixed;  
-    content:"";
-    background-image: url('../images/content/trainbridge.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-     opacity: 0.5; 
-    z-index: -10;
-    }
-     
-    
-    
-    &__info {
-      display: flex;
-      align-items: center;
-      padding-bottom: 60px;
-      @include phones {
-        flex-direction:column;
-        align-items: flex-start;
-        padding-bottom: 40px;
-      }
-      /* border: 2px solid yellow; */
-    }
-    &__section {
-      display: flex;
-      align-items: stretch;
-      flex-wrap: wrap;
-      /* flex-direction: row; */
-      margin-left: -30px;
-      
-
-    }
-    &__form-title {
-      border: 0;
-      width: 60%;
-      @include tablets {
-        
-      }
-      padding: 5px 0;
-      flex: .6;
-      @include tablets {
-       flex: 1; 
-      }
-      border-bottom: 1px solid #000;
-      color: #414c63;
-      background: 0;
-      font-size: 18px;
-      font-weight: 600;
-      &:focus{
-        outline: none;
-      }
-      &:disabled{
-        opacity: 0.5;
-      }
-    }
-    
-  }
+  
   .review-edit {
     display: flex;
     flex-direction: column;
@@ -1339,13 +1276,13 @@ export default {
       this.$router.push('/reviews');
     },
     goAbout(){
-      this.$router.push('/about');
+      this.$router.push('/');
     },
     goWorks(){
       this.$router.push('/works');
     },
     goExit(){
-      this.$router.push('/admin');
+      this.$router.push('/login');
     }
   }
 }

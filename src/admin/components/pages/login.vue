@@ -1,7 +1,7 @@
 <template lang="pug">
   .auth
     .auth__wrapper
-      form.auth-form 
+      form(@submit.prevent="login").auth-form 
         span.auth-form__title Авторизация
         label.auth-form__label-user
           .auth-form__label-title
@@ -10,19 +10,37 @@
         label.auth-form__label-key
           .auth-form__label-title
             span Пароль
-          input.auth-form__input(type="password" placeholder="Password" name="pass" v-model="user.pass")  
+          input.auth-form__input(type="password" placeholder="Password" name="pass" v-model="user.password")  
         button(type="submit" value="Отправить").auth-form__btn Отправить
       pre {{user}}  
 </template>
 <script>
+import $axios from '../../requests';
 export default {
-  data(){
-    return{
-      user : {
-        name:'',
-        pass:''
 
-      }
+  data: () => ({
+    user: {
+      name: '',
+      password: ''
+    }
+  }),
+  methods: {
+    async login() {
+     try {
+       const response = await $axios.post('/login',this.user);
+       
+       const token = response.data.token;
+       localStorage.setItem('token',token);
+       $axios.defaults.headers['Authorization'] =  `Bearer ${token}`;
+      //  const datauser = await $axios.get('/user');
+      //  console.log(datauser);
+      
+       this.$router.replace('/');
+       
+     } catch (error) {
+       
+     }
+
     }
   }
 }

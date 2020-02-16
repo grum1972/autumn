@@ -3,32 +3,41 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import login from './components/pages/login.vue';
-import works from './components/pages/works.vue';
-import about from './components/pages/about.vue';
-import reviews from './components/pages/reviews.vue';
+
+// import works from './components/pages/works.vue';
+// import about from './components/pages/about.vue';
+// import reviews from './components/pages/reviews.vue';
 
 const routes =[
   {
-    path: '/admin',
-    component : login,
+    path: '/login',
+    component : () => import('./components/pages/login.vue'),
     meta: {
       public: true
     }
   },
   {
     path: '/works',
-    component : works,
+    component : () => import('./components/pages/works.vue'),
+    meta: {
+      title: 'Блок Работы'
+    }
   },
   {
-    path: '/about',
-    component : about
+    path: '/',
+    component : () => import('./components/pages/about.vue'),
+    meta: {
+      title: 'Блок Обо мне'
+    }
   },
   {
     path: '/reviews',
-    component : reviews
+    component : () => import('./components/pages/reviews.vue'),
+    meta: {
+      title: 'Блок Отзывы'
+    }
   }
 ];
 
 
-export default new VueRouter({routes, mode: 'history' });
+export default new VueRouter({base:'/admin/', routes });

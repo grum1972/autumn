@@ -3,62 +3,33 @@
     .container.container--about
       .about__info
         h2.section__title Блок "Обо мне"
-        a(href="#").add__btn Добавить группу
+        button(@click="addGroup" v-if="!visible").add__btn Добавить группу
       .about__section
         form(@submit.prevent="addNewCategory").form.about__form.broad--half
-          .form__title 
-            input(name="name" value="Название новой группы" v-model='title').about__form-title
-            .form__buttons
-              button(type="submit" name="add").form__add-btn
-              button(name="remove").form__remove-btn
-          .form-slicer
-          .form__content
-          .form__controls
-            input(name="name" type="text" placeholder="Новый навык").form__controls-name
-            .form__controls-value-wrapper
-              input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-            button(type="submit").form__controls-btn
-         
+          addGroup
+        form().form.about__form.broad--half(v-for="category in categories" :key="category.id" :editcat='category.id') 
+          
+          skillsGroup(
+            :category='category'
+            
+            )
         
-        form().form.about__form.broad--half(v-for="category in categories" :key="category.id")
-          pre {{category.id}}  
-          .form__title 
-            input(name="name" value="" v-model="category.category").about__form-title
-            .form__buttons
-              button(name="add").form__add-btn
-              button(name="remove").form__remove-btn
-          .form-slicer
-          .form__content.form__content--about
-            .form__row
-              input(name="name" type="text" placeholder="HTML").form__row-name
-              .form__row-value-wrapper
-                input(name="name" type="number" placeholder="50").form__row-value
-              .form__buttons
-                button(name="add").form__edit-btn
-                button(name="remove").form__bin-btn
-            .form__row
-                input(name="name" type="text" placeholder="HTML").form__row-name
-                .form__row-value-wrapper
-                  input(name="name" type="number" placeholder="50").form__row-value
-                .form__buttons
-                  button(name="add").form__edit-btn
-                  button(name="remove").form__bin-btn
-          form(@submit.prevent="addNewSkill").form__controls
-            pre {{category.id}}
-            input(name="name" type="text" placeholder="Новый навык" v-model='skill.title').form__controls-name
-            .form__controls-value-wrapper
-              input(name="name" type="number" placeholder="100" min="0" max="100" v-model='skill.percent').form__controls-value
-            button(type="submit").form__controls-btn
       
 </template>
 
 <script>
 import {mapActions,mapState} from 'vuex';
 export default {
+  components : {
+    skillsGroup: () => import('../skillsGroup'),
+    addGroup: () => import('../addGroup')
+  },
   data: function() {
 
     return {
       title: "",
+      editcat: 0,
+      visible: false,
       skill: {
         title: "",
         percent: 0,
@@ -93,6 +64,12 @@ export default {
       } catch (error) {
         alert(error.message);
       }
+    },
+    logcat(){
+      console.log(editcat);
+    },
+    addGroup() {
+      return this.visible = !this.visible;
     }
   }
 }

@@ -1259,13 +1259,17 @@ import login from './components/pages/login';
 import works from './components/pages/works.vue';
 import about from './components/pages/about.vue';
 import reviews from './components/pages/reviews';
+import skillsGroup from './components/skillsGroup';
+import addGroup from './components/addGroup';
 export default {
   name: 'app',
   components: {
     login,
     about,
     works,
-    reviews
+    reviews,
+    skillsGroup,
+    addGroup
   },
   data (){
     return{

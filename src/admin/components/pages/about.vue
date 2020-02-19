@@ -3,15 +3,14 @@
     .container.container--about
       .about__info
         h2.section__title Блок "Обо мне"
-        button(@click="addGroup" v-if="!visible").add__btn Добавить группу
+        button().add__btn Добавить группу
       .about__section
-        form(@submit.prevent="addNewCategory").form.about__form.broad--half
+        form().form.about__form.broad--half
           addGroup
-        form().form.about__form.broad--half(v-for="category in categories" :key="category.id" :editcat='category.id') 
-          
+        form().form.about__form.broad--half(v-for="category in categories" :key="category.id") 
           skillsGroup(
-            :category='category'
-            
+             :category='category'
+             :skills='filterCategorySkills(category.id)'
             )
         
       
@@ -24,53 +23,36 @@ export default {
     skillsGroup: () => import('../skillsGroup'),
     addGroup: () => import('../addGroup')
   },
-  data: function() {
-
-    return {
-      title: "",
-      editcat: 0,
-      visible: false,
-      skill: {
-        title: "",
-        percent: 0,
-        category: 0
-      }
-    }
-  },
   computed: {
     ...mapState('categories',{
       categories: state => state.categories
+    }),
+    ...mapState('skills',{
+      skills: state => state.skills
     })
     
   },
-  created(){
-    this.fetchCategories();
-    console.log(this.categories);
+  async created(){
+    try {
+      await this.fetchCategories();  
+    } catch (error) {
+      
+    }
+    try {
+      await this.fetchSkills();  
+    } catch (error) {
+      
+    }
+    
   },
   methods: {
-    ...mapActions('categories',['addCategory','fetchCategories','addSkill']),
-    async addNewCategory() {
-      try {
-        await this.addCategory(this.title);
-      } catch (error) {
-        alert(error.message);
+    ...mapActions('categories', ['fetchCategories']),
+    ...mapActions('skills',['fetchSkills']),
+      filterCategorySkills(catid) {
+        return this.skills.filter(skill => skill.category === catid)
       }
-    },
-    async addNewSkill() {
-      try {
-        console.log(this.skill);
-        
-        // await this.addSkill(this.skill);
-      } catch (error) {
-        alert(error.message);
-      }
-    },
-    logcat(){
-      console.log(editcat);
-    },
-    addGroup() {
-      return this.visible = !this.visible;
-    }
+
+    
   }
 }
 </script>

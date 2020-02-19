@@ -4,9 +4,8 @@ export default {
     categories: []
   },
   mutations: {
-    SET_CATEGORIES: (state,data) => (state.categories = data),
+    GET_CATEGORIES: (state,data) => (state.categories = data),
     ADD_CATEGORY: (state,category) =>state.categories.push(category),
-    // ADD_SKILL: (state,skill)=>state.categories[]
   },
   actions: {
     async addCategory({commit}, title) {
@@ -25,17 +24,9 @@ export default {
       try {
         const {data} = await this.$axios.get("/categories/287");
         // console.log(data);
-        commit('SET_CATEGORIES',data);
+        commit('GET_CATEGORIES',data);
         
       } catch (error) {}
-    },
-    async addSkill({commit},skill) {
-      try {
-        const {data} = await this.$axios.post('/skills', {skill});
-        // commit('ADD_SKILL',data);
-      } catch (error) {
-        
-      }
     }
   }
 }

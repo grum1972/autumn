@@ -2,20 +2,49 @@
 
   div
     .form__title 
-      input(name="name" value="Название новой группы" v-model='title').about__form-title
+      input(name="name" placeholder="Название новой группы" v-model="title" autocomplete="off").about__form-title
       .form__buttons
-        button(type="submit" name="add").form__add-btn
-        button(name="remove" @click="addGroup").form__remove-btn
+        button(type="button" name="add" @click.prevent="addNewCategory").form__add-btn
+        button(type="button" name="remove").form__remove-btn
     .form-slicer
     .form__content
     .form__controls()
       input(name="name" type="text" placeholder="Новый навык" disabled="disabled").form__controls-name
       .form__controls-value-wrapper
-        input(name="name" type="number" placeholder="100" min="0" max="100").form__controls-value
-      button(type="submit").form__controls-btn
+        input(name="name" type="number" placeholder="0" min="0" max="100" disabled="disabled").form__controls-value
+      button(type="button" disabled="disabled").form__controls-btn
 </template>
 <script>
+  import {mapActions} from 'vuex';
+  export default {
+    data() {
+      return {
+        title: ""
+      }
+    },
+    methods: {
+      ...mapActions('categories', ['addCategory']),
+      async addNewCategory() {
+        try {
+          await this.addCategory(this.title);
+          this.title="";
+        } catch (error) {
+          alert(error.message);
+        }
+      }
+    }
+  }
 </script>
 <style lang="postcss">
-
+  .form__controls-btn {
+    &:disabled {
+      opacity: .3;
+    }
+    
+  }
+  .form__controls-name {
+    &:disabled:hover {
+      border-bottom: 1px solid #000;
+    }
+  }
 </style>

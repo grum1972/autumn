@@ -5,7 +5,7 @@
       input(name="name" placeholder="Название новой группы" v-model="title" autocomplete="off").about__form-title
       .form__buttons
         button(type="button" name="add" @click.prevent="addNewCategory").form__add-btn
-        button(type="button" name="remove").form__remove-btn
+        button(type="button" name="remove" @click.prevent="$emit('toggleAddForm')").form__remove-btn
     .form-slicer
     .form__content
     .form__controls()
@@ -28,6 +28,7 @@
         try {
           await this.addCategory(this.title);
           this.title="";
+          this.$emit('toggleAddForm');
         } catch (error) {
           alert(error.message);
         }

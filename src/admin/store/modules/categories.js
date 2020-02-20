@@ -5,7 +5,8 @@ export default {
   },
   mutations: {
     GET_CATEGORIES: (state,data) => (state.categories = data),
-    ADD_CATEGORY: (state,category) =>state.categories.push(category),
+    ADD_CATEGORY: (state,category) =>state.categories.unshift(category),
+    DEL_CATEGORY: (state,deletedCatID) => (state.categories = state.categories.filter(category => category.id !== deletedCatID))  
   },
   actions: {
     async addCategory({commit}, title) {
@@ -27,6 +28,15 @@ export default {
         commit('GET_CATEGORIES',data);
         
       } catch (error) {}
+    },
+    async delCategory ({commit},deletedCatID){
+      try {
+        console.log('/categories/'+deletedCatID);
+        await this.$axios.delete('/categories/'+deletedCatID);
+        commit('DEL_CATEGORY',deletedCatID);
+      } catch (error) {
+        
+      }
     }
   }
 }

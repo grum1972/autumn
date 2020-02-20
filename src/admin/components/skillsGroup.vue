@@ -2,12 +2,13 @@
   .div1
     
     .form__title 
+      
       input(name="name" value="1212" v-model="editedCategory.category").about__form-title
       .form__buttons
         button(name="add").form__add-btn
-        button(name="remove").form__remove-btn
+        button(name="remove" @click.prevent="delCurrentCategory").form__remove-btn
     .form-slicer
-    //- pre {{category.skills}}
+    //- pre {{editedCategory.id}}
     ul.form__content.form__content--about
       skillItem(v-for='skill in skills' :key='skill.id' :skill='skill')
       //- skillItem
@@ -44,6 +45,7 @@ export default {
   },
   methods: {
     ...mapActions('skills',['addSkill']),
+    ...mapActions('categories',['delCategory']),
     async addNewSkill() {
         try {
           await this.addSkill(this.skill);
@@ -52,8 +54,16 @@ export default {
         } catch (error) {
           alert(error.message);
         }
+      },
+    async delCurrentCategory() {
+        try {
+          await this.delCategory(this.editedCategory.id);
+        } catch (error) {
+          alert(error.message);
+        }
       }
   },
+
  components: {
 	  skillItem: () => import('./skillItem')}, 
 }

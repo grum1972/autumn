@@ -1,3 +1,69 @@
+
+<template lang="pug">
+  .wrapper
+    template(v-if="$route.meta.public")  
+      router-view
+    template(v-if="!$route.meta.public")
+      header.header
+        .container
+          .header-content
+            
+            .user-info__photo
+                img(src="../images/content/user.jpg").user-info__photo-img
+            .user-info
+              .user-info__name Котов Олег
+              .header__title Панель администрирования
+              a(@click='goExit').header-btn Выйти
+      nav.header-menu
+        .container
+          ul.header-menu__list
+            li.header-menu__item
+              a(@click='goAbout').header-menu__link Обо мне
+            li.header-menu__item
+              a(@click='goWorks').header-menu__link Работы
+            li.header-menu__item
+              a(@click='goReviews').header-menu__link Отзывы
+      main.content
+        router-view 
+</template>
+
+<script>
+import login from './components/pages/login';
+import works from './components/pages/works.vue';
+import about from './components/pages/about.vue';
+import reviews from './components/pages/reviews';
+import skillsGroup from './components/skillsGroup';
+import addGroup from './components/addGroup';
+export default {
+  name: 'app',
+  components: {
+    login,
+    about,
+    works,
+    reviews,
+    skillsGroup,
+    addGroup
+  },
+  data (){
+    return{
+    }
+  },
+  methods: {
+    goReviews(){
+      this.$router.push('/reviews');
+    },
+    goAbout(){
+      this.$router.push('/');
+    },
+    goWorks(){
+      this.$router.push('/works');
+    },
+    goExit(){
+      this.$router.push('/login');
+    }
+  }
+}
+</script>
 <style lang="postcss">
   @import "../styles/mixins.pcss";
   @import "normalize.css";
@@ -1224,70 +1290,3 @@ margin-bottom: 20px;
 }
 </style>
 
-
-
-<template lang="pug">
-  .wrapper
-    template(v-if="$route.meta.public")  
-      router-view
-    template(v-if="!$route.meta.public")
-      header.header
-        .container
-          .header-content
-            
-            .user-info__photo
-                img(src="../images/content/user.jpg").user-info__photo-img
-            .user-info
-              .user-info__name Котов Олег
-              .header__title Панель администрирования
-              a(@click='goExit').header-btn Выйти
-      nav.header-menu
-        .container
-          ul.header-menu__list
-            li.header-menu__item
-              a(@click='goAbout').header-menu__link Обо мне
-            li.header-menu__item
-              a(@click='goWorks').header-menu__link Работы
-            li.header-menu__item
-              a(@click='goReviews').header-menu__link Отзывы
-      main.content
-        router-view 
-</template>
-
-<script>
-import login from './components/pages/login';
-import works from './components/pages/works.vue';
-import about from './components/pages/about.vue';
-import reviews from './components/pages/reviews';
-import skillsGroup from './components/skillsGroup';
-import addGroup from './components/addGroup';
-export default {
-  name: 'app',
-  components: {
-    login,
-    about,
-    works,
-    reviews,
-    skillsGroup,
-    addGroup
-  },
-  data (){
-    return{
-    }
-  },
-  methods: {
-    goReviews(){
-      this.$router.push('/reviews');
-    },
-    goAbout(){
-      this.$router.push('/');
-    },
-    goWorks(){
-      this.$router.push('/works');
-    },
-    goExit(){
-      this.$router.push('/login');
-    }
-  }
-}
-</script>

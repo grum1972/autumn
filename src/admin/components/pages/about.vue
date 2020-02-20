@@ -3,11 +3,12 @@
     .container.container--about
       .about__info
         h2.section__title Блок "Обо мне"
-        button().add__btn Добавить группу
+        button(@click='toggleAddForm' v-if='!addForm').add__btn Добавить группу
       .about__section
-        form().form.about__form.broad--half
-          addGroup
-        form().form.about__form.broad--half(v-for="category in categories" :key="category.id") 
+        form(v-if='addForm').form.about__form.broad--half
+          addGroup(@toggleAddForm="toggleAddForm")
+        form.form.about__form.broad--half(v-for="category in categories" :key="category.id") 
+          //- pre {{category}}
           skillsGroup(
              :category='category'
              :skills='filterCategorySkills(category.id)'
@@ -19,6 +20,11 @@
 <script>
 import {mapActions,mapState} from 'vuex';
 export default {
+  data(){
+    return {
+      addForm:false
+      }
+  },
   components : {
     skillsGroup: () => import('../skillsGroup'),
     addGroup: () => import('../addGroup')
@@ -32,6 +38,23 @@ export default {
     })
     
   },
+  
+  methods: {
+    ...mapActions('categories', ['fetchCategories']),
+    ...mapActions('skills',['fetchSkills']),
+      filterCategorySkills(catid) {
+        
+        
+        return this.skills.filter(skill => skill.category === catid)
+      },
+      toggleAddForm(){
+        console.log(this.addForm);
+        this.addForm = !this.AddForm;
+        console.log(this.addForm);
+      }
+
+    
+  },
   async created(){
     try {
       await this.fetchCategories();  
@@ -41,17 +64,9 @@ export default {
     try {
       await this.fetchSkills();  
     } catch (error) {
+      console.error(error);
       
     }
-    
-  },
-  methods: {
-    ...mapActions('categories', ['fetchCategories']),
-    ...mapActions('skills',['fetchSkills']),
-      filterCategorySkills(catid) {
-        return this.skills.filter(skill => skill.category === catid)
-      }
-
     
   }
 }

@@ -1,8 +1,13 @@
 export default {
   namespaced: true,
+  state: {
+    skills: []
+  },
   mutations: {
     GET_SKILLS: (state,data) => (state.skills = data),
-    ADD_SKILL: (state,newSkill) => state.skills = state.skills.push(newSkill)
+    ADD_SKILL: (state,newSkill) => state.skills.push(newSkill),
+    REMOVE_SKILL: (state,deletedId) => (state.skills = state.skills.filter(skill => skill.id !== deletedId))
+    
   },
   actions: {
     async addSkill ({commit},skill) {
@@ -21,11 +26,11 @@ export default {
         
       } catch (error) {}
     },
-    async removeAnySkill ({commit},skillid) {
+    async removeAnySkill ({commit},skillID) {
       try {
-        console.log('/skills/'+skillid);
-        const {data} = await this.$axios.delete('/skills/'+ skillid);
-        // commit('ADD_SKILL',data);
+        console.log('/skills/'+skillID);
+        await this.$axios.delete('/skills/'+ skillID);
+        commit('REMOVE_SKILL',skillID);
       } catch (error) {
         
       }

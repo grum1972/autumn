@@ -231,7 +231,7 @@ html(lang="en")
           .container
             .feedback__title Cвязаться со мной
             .form__wrapper
-              form(action).form__content(@submit.prevent="submitForm")
+              form.form__content(@submit.prevent="submitForm")
                 .form__row.form__row--one
                   label.form__label(:class = "{'form__label--error': !nameValid}")
                     span.form__label-title Введите ваше имя

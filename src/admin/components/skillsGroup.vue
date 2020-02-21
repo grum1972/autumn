@@ -3,10 +3,13 @@
     
     .form__title 
       
-      input(name="name" value="1212" v-model="editedCategory.category").about__form-title
-      .form__buttons
-        button(name="add").form__add-btn
-        button(name="remove" @click.prevent="delCurrentCategory").form__remove-btn
+      input(name="name" value="1212" v-model="editedCategory.category" :disabled="!editForm" ).about__form-title
+      .form__buttons(v-if='editForm')
+        button(name="add" @click.prevent="updateCurrentCategory").form__add-btn
+        button(name="remove" @click.prevent="editCurrentCategory").form__remove-btn
+      .form__buttons(v-else)
+        button(name="add" @click.prevent="editCurrentCategory").form__edit-btn
+        button(name="remove" @click.prevent="delCurrentCategory").form__bin-btn  
     .form-slicer
     //- pre {{editedCategory.id}}
     ul.form__content.form__content--about
@@ -28,6 +31,7 @@ export default {
   data() {
     return {
       editedCategory: {...this.category},
+      editForm: false,
       skill: {
         title:"",
         percent:"",
@@ -45,7 +49,7 @@ export default {
   },
   methods: {
     ...mapActions('skills',['addSkill']),
-    ...mapActions('categories',['delCategory']),
+    ...mapActions('categories',['delCategory','updateCategory']),
     async addNewSkill() {
         try {
           await this.addSkill(this.skill);
@@ -61,7 +65,29 @@ export default {
         } catch (error) {
           alert(error.message);
         }
-      }
+      },
+    async updateCurrentCategory() {
+        try {
+          
+           
+          await this.updateCategory(this.editedCategory);
+          this.editForm = !this.editForm;
+        } catch (error) {
+          alert(error.message);
+        }
+      }  ,
+
+    async editCurrentCategory() {
+        try {
+          if(this.editForm) {
+            this.editedCategory = {...this.category};
+          } ;        
+          this.editForm = !this.editForm;
+          
+        } catch (error) {
+          alert(error.message);
+        }
+      }  
   },
 
  components: {

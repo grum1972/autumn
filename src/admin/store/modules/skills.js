@@ -6,7 +6,12 @@ export default {
   mutations: {
     GET_SKILLS: (state,data) => (state.skills = data),
     ADD_SKILL: (state,newSkill) => state.skills.push(newSkill),
-    REMOVE_SKILL: (state,deletedId) => (state.skills = state.skills.filter(skill => skill.id !== deletedId))
+    REMOVE_SKILL: (state,deletedId) => (state.skills = state.skills.filter(skill => skill.id !== deletedId)),
+    UPD_SKILL: (state,updSkill) => {
+      state.skills = state.skills.map(skill => {
+        return skill.id === updSkill.id ? updSkill : skill;
+      });
+    }  
     
   },
   actions: {
@@ -35,5 +40,14 @@ export default {
         
       }
     },
+    async updateSkill({commit},updSkill) {
+      try {
+        console.log('/skills/'+updSkill.id);
+        // await this.$axios.post('/skills/'+ updSkill.id,updSkill);
+        // commit('UPD_SKILL',updSkill);
+      } catch (error) {
+        
+      }
+    }
   }
 }

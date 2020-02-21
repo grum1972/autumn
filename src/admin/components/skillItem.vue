@@ -1,6 +1,5 @@
 <template lang="pug">
   li.form__row
-    
     input(
       name="name" 
       type="text" 
@@ -14,12 +13,12 @@
         placeholder="50" 
         v-model="editedSkill.percent"
         :disabled="inputDisabled").form__row-value
-    .form__buttons(v-if='!inputDisabled')
+    .form__buttons(v-if='inputDisabled')
       button(name="add" @click.prevent='editSkill').form__edit-btn
       button(name="remove" @click.prevent='removeSkill').form__bin-btn
     .form__buttons(v-else)
-      button(name="save").form__add-btn
-      button(name="remove").form__remove-btn  
+      button(name="save" @click.prevent='updateCurrentSkill').form__add-btn
+      button(name="remove" @click.prevent='editSkill').form__remove-btn  
 </template>
 <script>
 import { mapActions } from 'vuex'
@@ -33,7 +32,7 @@ export default {
       inputDisabled: true
     }
   },
-  methods: {...mapActions('skills',['removeAnySkill']),
+  methods: {...mapActions('skills',['removeAnySkill','updateSkill']),
   async removeSkill(){
     try {
       const response = await this.removeAnySkill(this.skill.id);
@@ -43,10 +42,29 @@ export default {
   },
   async editSkill(){
     try {
-      // const response = await this.nySkill(this.skill);
+      console.log(this.skill);
+      console.log(this.inputDisabled);
+      if(!this.inputDisabled){
+      
+        this.editedSkill = {...this.skill}
+      };
+      
+      this.inputDisabled = !this.inputDisabled;
+      
+      
     } catch (error) {
+      console.log(error);
       
     }
-  }}
+  },
+  async updateCurrentSkill(){
+    try {
+      await updateSkill(this.editedSkill);
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+ }
 }
 </script>

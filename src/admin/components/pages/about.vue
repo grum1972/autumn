@@ -48,9 +48,7 @@ export default {
         return this.skills.filter(skill => skill.category === catid)
       },
       toggleAddForm(){
-        console.log(this.addForm);
-        this.addForm = !this.AddForm;
-        console.log(this.addForm);
+        this.addForm = !this.addForm;
       }
 
     

@@ -26,13 +26,18 @@ export default {
         );
       }
     },
-    async fetchCategories({commit}) {
+    async fetchCategories({commit,rootGetters}) {
       try {
+        const userID = rootGetters['user/userId'];
+        console.log(userID);
         const {data} = await this.$axios.get("/categories/287");
-        // console.log(data);
+        
         commit('GET_CATEGORIES',data);
         
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+        
+      }
     },
     async delCategory ({commit},deletedCatID){
       try {

@@ -42,9 +42,9 @@ export default {
     },
     async updateSkill({commit},updSkill) {
       try {
-        console.log('/skills/'+updSkill.id);
-        // await this.$axios.post('/skills/'+ updSkill.id,updSkill);
-        // commit('UPD_SKILL',updSkill);
+        // console.log('/skills/'+updSkill.id);
+        await this.$axios.post('/skills/'+ updSkill.id,updSkill);
+        commit('UPD_SKILL',updSkill);
       } catch (error) {
         
       }

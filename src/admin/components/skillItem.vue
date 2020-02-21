@@ -42,8 +42,7 @@ export default {
   },
   async editSkill(){
     try {
-      console.log(this.skill);
-      console.log(this.inputDisabled);
+      
       if(!this.inputDisabled){
       
         this.editedSkill = {...this.skill}
@@ -59,7 +58,8 @@ export default {
   },
   async updateCurrentSkill(){
     try {
-      await updateSkill(this.editedSkill);
+      await this.updateSkill(this.editedSkill);
+      this.inputDisabled = !this.inputDisabled;
     } catch (error) {
       console.log(error);
       

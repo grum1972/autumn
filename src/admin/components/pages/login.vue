@@ -16,22 +16,18 @@
 </template>
 <script>
 import $axios from '../../requests';
-import { mapState } from 'vuex';
+import {mapActions} from 'vuex';
 export default {
-
+  
   data: () => ({
     user: {
       name: '',
       password: ''
     }
   }),
-  computed: {
-    ...mapState('user',{
-      user: state => user.categories
-    })
-    
-  },
+
   methods: {
+        ...mapActions('user',['setUser']),
     async login() {
      try {
        const response = await $axios.post('/login',this.user);
@@ -40,9 +36,9 @@ export default {
        localStorage.setItem('token',token);
        $axios.defaults.headers['Authorization'] =  `Bearer ${token}`;
        const datauser = await $axios.get('/user');
-       console.log(datauser);
-      
-       this.$router.replace('/');
+       
+      //  this.setUser(datauser);
+      //  this.$router.replace('/');
        
      } catch (error) {
        

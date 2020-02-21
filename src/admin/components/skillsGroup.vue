@@ -68,8 +68,6 @@ export default {
       },
     async updateCurrentCategory() {
         try {
-          
-           
           await this.updateCategory(this.editedCategory);
           this.editForm = !this.editForm;
         } catch (error) {

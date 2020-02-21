@@ -1,4 +1,12 @@
 import Vue from "vue";
+import axios from 'axios'
+
+const $axios = axios.create({
+  baseURL: "https://webdev-api.loftschool.com/",
+  // headers: {
+  //   "Authorization": `Bearer ${token}`
+  // }
+});
 
 const skill = {
   template: "#skill",
@@ -39,9 +47,13 @@ new Vue({
     skillGroup
   },
   
-  created() {
-    const  data =require("../data/skills.json");
+  async created() {
+    // const  data =require("../data/skills.json");
+    const {data} = await this.$axios.get("skills/287");
     this.skills = data;
+    
+    // const {data} = await this.$axios.get("categories/287");
+    // this.skills = data;
   }
 
 })

@@ -57,6 +57,7 @@ export default {
     try {
       await this.fetchCategories();  
     } catch (error) {
+      console.log(error);
       
     }
     try {
@@ -83,7 +84,7 @@ export default {
   
 .about {
     /* border: 1px solid yellow; */
-    position: relative;
+    /* position: relative;
     &:before {
       top: 0;
       left: 0;
@@ -95,9 +96,9 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
      opacity: 0.5; 
-    z-index: -10;
+    z-index: -10; */
     
-    }
+    /* } */
      
     
     

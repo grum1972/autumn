@@ -1,5 +1,6 @@
 script(type="text/x-template")#skills-list
   .advantages__content
+    
     ul.skill-set
       li.skill-set__item(v-for="skill in skills")
         skill-group(
@@ -10,13 +11,15 @@ script(type="text/x-template")#skills-list
       
 script(type="text/x-template")#skill-group
   .skill-group
-    .skill-group__title {{skill.skillGroup}}
+    
+    .skill-group__title {{skill.category}}
     .skill-group__content
       ul.skills__list
-        li.skills__item(v-for="(skillPercent, skillName) in skill.skills")
+        li.skills__item(v-for="(skillObj) in skill.skills")
+    
           skill(
-            :skillName="skillName"
-            :skillPercent="skillPercent"
+            :skillName="skillObj.title"
+            :skillPercent="skillObj.percent"
           )
 
 script(type="text/x-template")#skill                   

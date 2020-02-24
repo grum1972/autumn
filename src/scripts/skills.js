@@ -2,11 +2,11 @@ import Vue from "vue";
 import axios from 'axios'
 
 const $axios = axios.create({
-  baseURL: "https://webdev-api.loftschool.com/",
+  baseURL: "https://webdev-api.loftschool.com/"
   // headers: {
   //   "Authorization": `Bearer ${token}`
   // }
-});
+ });
 
 const skill = {
   template: "#skill",
@@ -23,8 +23,6 @@ const skill = {
   mounted() {
     this.drawSkill();
   }
-
-  
 }
 
 const skillGroup = {
@@ -46,14 +44,20 @@ new Vue({
   components: {
     skillGroup
   },
-  
-  async created() {
-    // const  data =require("../data/skills.json");
-    const {data} = await this.$axios.get("skills/287");
-    this.skills = data;
-    
-    // const {data} = await this.$axios.get("categories/287");
-    // this.skills = data;
+  created() {
+    fetch("https://webdev-api.loftschool.com/categories/287")
+      .then(response => response.json())
+      .then(rez => (console.log(rez), (this.skills = rez)));
   }
 
+  
+//  async created() {
+//     try {
+//       // const  data =require("../data/skills.json");
+//       const {data} = await this.$axios.get("categories/287");
+//       this.skills = data;  
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
 })

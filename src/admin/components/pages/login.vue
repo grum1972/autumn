@@ -35,12 +35,13 @@ export default {
        const token = response.data.token;
        localStorage.setItem('token',token);
        $axios.defaults.headers['Authorization'] =  `Bearer ${token}`;
-       const datauser = await $axios.get('/user');
        
-      //  this.setUser(datauser);
-      //  this.$router.replace('/');
+      console.log('222');
+      
+      this.$router.replace('/');
        
      } catch (error) {
+       console.log(error);
        
      }
 

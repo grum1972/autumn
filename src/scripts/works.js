@@ -31,7 +31,7 @@ const info = {
   props: ["currentWork"],
   computed: {
     tagsArray() {
-      return this.currentWork.skills.split(', ')
+      return this.currentWork.techs.split(', ')
     }
   }
 };
@@ -47,7 +47,8 @@ new Vue({
   data() {
     return {
       works: [],
-      currentIndex: 0
+      currentIndex: 0,
+      baseURL: "https://webdev-api.loftschool.com/"
     }
   },
   computed: {
@@ -99,8 +100,12 @@ new Vue({
     }
   },
   created() {
-    const data =require("../data/works.json");
-    this.works = this.makeArrWithRequiredImages(data);
+    // const data =require("../data/works.json");
+    // this.works = this.makeArrWithRequiredImages(data);
+    
+    fetch("https://webdev-api.loftschool.com/works/287")
+      .then(response => response.json())
+      .then(rez => (console.log(rez), (this.works = rez)));
     
   }
 });

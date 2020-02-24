@@ -34,6 +34,9 @@ import about from './components/pages/about.vue';
 import reviews from './components/pages/reviews';
 import skillsGroup from './components/skillsGroup';
 import addGroup from './components/addGroup';
+import addWork from './components/addWork';
+import workItem from './components/workItem';
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   name: 'app',
   components: {
@@ -42,12 +45,16 @@ export default {
     works,
     reviews,
     skillsGroup,
-    addGroup
+    addGroup,
+    addWork,
+    workItem
   },
   data (){
     return{
     }
   },
+  computed : {
+    ...mapGetters('user',['userIsLoggedIn'])},
   methods: {
     goReviews(){
       this.$router.push('/reviews');
@@ -77,6 +84,20 @@ export default {
     flex-direction: column;
     min-height: 100vh;
     
+    position: relative;
+    &:before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;   
+    position: fixed;  
+    content:"";
+    background-image: url('../images/content/trainbridge.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+     opacity: 0.5; 
+    z-index: -10;
+    }
   }
 
   .container {
@@ -639,9 +660,9 @@ export default {
     }
   
   }
-  .tags {
+/* .tags {
   display: flex;
-}
+} */
 .tags__item {
   margin-right: 10px;
 }
@@ -844,7 +865,7 @@ export default {
 
     }
     &__edit-content {
-      display: none;
+      /* display: none; */
       @include tablets {
         display: flex;
         flex-direction: column;

@@ -30,8 +30,7 @@ export default {
       try {
         const userID = rootGetters['user/userId'];
         console.log(userID);
-        const {data} = await this.$axios.get("/categories/287");
-        
+        const {data} = await this.$axios.get("/categories/"+userID);
         commit('GET_CATEGORIES',data);
         
       } catch (error) {

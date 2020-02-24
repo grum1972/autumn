@@ -18,7 +18,7 @@ export default {
   
         return userObjectIsEmpty === false;
       },
-    userId: state => {
+      userId: state => {
 
       return state.user.id
     } 
@@ -31,7 +31,7 @@ export default {
     },
     setUser({commit},newUser) {
       try {
-        console.log(newUser);
+       console.log(newUser);
       commit("SET_USER",newUser);
       } catch (error) {
         console.log(error);
